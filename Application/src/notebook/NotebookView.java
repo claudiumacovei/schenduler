@@ -3,17 +3,18 @@ package notebook;
 import java.beans.PropertyChangeEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import notebookAbstract.AbstractView;
 
 public class NotebookView extends JFrame implements AbstractView {
     private final NotebookController controller;
     private final NotebookModel model;
+    private JLabel currentMounthName = new JLabel();
+    private JPanel dayNamePannel = new JPanel();
+    private JPanel weekNumberPannel = new JPanel();
     
-    /**
-     * Creates new form NotebookView
-     * @param controller
-     */
     public NotebookView(NotebookController controller, NotebookModel model) {
     
         this.controller = controller;

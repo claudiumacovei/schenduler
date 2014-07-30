@@ -1,6 +1,9 @@
 package notebook;
 
 import static notebook.NotebookConstant.dayNamePannelMinimumHeight;
+import static notebook.NotebookConstant.gapMaximumSize;
+import static notebook.NotebookConstant.gapMinimumSize;
+import static notebook.NotebookConstant.gapPreferedSize;
 import static notebook.NotebookConstant.weekNumberPannelMinimumWidht;
 
 import java.awt.Color;
@@ -9,6 +12,9 @@ import java.beans.PropertyChangeEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout.ParallelGroup;
+import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -43,13 +49,10 @@ public class NotebookView extends JFrame implements AbstractView {
         currentMonthName.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         currentMonthName.setMinimumSize(new Dimension(dayNamePannelMinimumHeight, weekNumberPannelMinimumWidht));
         currentMonthName.setPreferredSize(new Dimension(dayNamePannelMinimumHeight, weekNumberPannelMinimumWidht));
+        
         dayNamePannel = new NotebookDaysNamePanel(model);
         weekNumberPannel = new NotebookWeeksNumberPannel(model);
         daysPannel = new NotebookDaysPannel(model);
-        
-        dayNamePannel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        weekNumberPannel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        daysPannel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         
         initPannels();
         
@@ -62,8 +65,40 @@ public class NotebookView extends JFrame implements AbstractView {
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addContainerGap().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(currentMonthName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(weekNumberPannel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(dayNamePannel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGroup(layout.createSequentialGroup().addComponent(daysPannel, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE).addGap(1, 1, 1))).addGap(10, 10, 10)));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addComponent(currentMonthName, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE).addGap(2, 2, 2)).addGroup(layout.createSequentialGroup().addComponent(dayNamePannel, javax.swing.GroupLayout.PREFERRED_SIZE, 91, Short.MAX_VALUE).addGap(6, 6, 6))).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(weekNumberPannel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGroup(layout.createSequentialGroup().addComponent(daysPannel, javax.swing.GroupLayout.PREFERRED_SIZE, 495, Short.MAX_VALUE).addGap(10, 10, 10))).addGap(10, 10, 10)));
+        ParallelGroup horizontalParallelGroup = layout.createParallelGroup(Alignment.LEADING);
+        SequentialGroup horizontalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        ParallelGroup horizontalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
+        SequentialGroup horizontalSequentialGroup2 = layout.createSequentialGroup();
+        horizontalSequentialGroup2.addComponent(currentMonthName);
+        horizontalSequentialGroup2.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        horizontalSequentialGroup2.addComponent(dayNamePannel);
+        horizontalParallelGroup2.addGroup(horizontalSequentialGroup2);
+        horizontalSequentialGroup2 = layout.createSequentialGroup();
+        horizontalSequentialGroup2.addComponent(weekNumberPannel);
+        horizontalSequentialGroup2.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        horizontalSequentialGroup2.addComponent(daysPannel);
+        horizontalParallelGroup2.addGroup(horizontalSequentialGroup2);
+        horizontalSequentialGroup.addGroup(horizontalParallelGroup2);
+        horizontalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        horizontalParallelGroup.addGroup(horizontalSequentialGroup);
+        
+        layout.setHorizontalGroup(horizontalParallelGroup);
+        
+        ParallelGroup verticalParallelGroup = layout.createParallelGroup(Alignment.LEADING);
+        SequentialGroup verticalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        ParallelGroup verticalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
+        verticalParallelGroup2.addComponent(dayNamePannel);
+        verticalParallelGroup2.addComponent(currentMonthName);
+        verticalSequentialGroup.addGroup(verticalParallelGroup2);
+        verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        verticalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
+        verticalParallelGroup2.addComponent(weekNumberPannel);
+        verticalParallelGroup2.addComponent(daysPannel);
+        verticalSequentialGroup.addGroup(verticalParallelGroup2);
+        verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        verticalParallelGroup.addGroup(verticalSequentialGroup);
+        
+        layout.setVerticalGroup(verticalParallelGroup);
     }
     
     @Override

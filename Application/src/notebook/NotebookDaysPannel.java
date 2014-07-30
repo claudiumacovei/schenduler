@@ -13,6 +13,8 @@ import static notebook.NotebookConstant.gapPreferedSize;
 import static notebook.NotebookConstant.weekNumberPannelMinimumHeight;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -53,6 +55,23 @@ public class NotebookDaysPannel extends JPanel {
                 days[i][j].setPreferredSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
                 days[i][j].setHorizontalAlignment(CENTER);
                 days[i][j].setVerticalAlignment(CENTER);
+                final int currentI = i;
+                final int currentJ = j;
+                days[i][j].addActionListener(new ActionListener() {
+                    
+                    @Override
+                    public void actionPerformed(ActionEvent arg0) {
+                    
+                        daysButtonActionPerformed(currentI, currentJ, arg0);
+                        
+                    }
+                    
+                    private void daysButtonActionPerformed(int currentI, int currentJ, ActionEvent arg0) {
+                    
+                        System.out.println("DayButtonPressed: i=" + currentI + " j=" + currentJ + " actionEvent: " + arg0);
+                        
+                    }
+                });
                 
                 horizontalLocalSequentialGroup.addComponent(days[i][j]);
                 horizontalLocalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);

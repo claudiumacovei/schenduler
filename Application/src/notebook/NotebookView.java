@@ -40,6 +40,7 @@ public class NotebookView extends JFrame implements AbstractView {
     private void setFrame() {
     
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setJMenuBar(menuBar);
         
     }
     

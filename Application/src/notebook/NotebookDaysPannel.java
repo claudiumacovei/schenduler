@@ -6,15 +6,16 @@ import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;
 import static notebook.NotebookConstant.buttonMinimumHeight;
 import static notebook.NotebookConstant.buttonMinimumWidth;
+import static notebook.NotebookConstant.dayNamePannelMinimumWidth;
 import static notebook.NotebookConstant.gapMaximumSize;
 import static notebook.NotebookConstant.gapMinimumSize;
 import static notebook.NotebookConstant.gapPreferedSize;
+import static notebook.NotebookConstant.weekNumberPannelMinimumHeight;
 
-import java.awt.Color;
 import java.awt.Dimension;
 
-import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JButton;
@@ -27,7 +28,57 @@ public class NotebookDaysPannel extends JPanel {
     public NotebookDaysPannel(NotebookModel model) {
     
         this.model = model;
-        initComponents();
+        //        initComponents();
+        initComponents2();
+        setPanel();
+    }
+    
+    private void initComponents2() {
+    
+        GroupLayout layout = new GroupLayout(this);
+        setLayout(layout);
+        
+        ParallelGroup horizontalParallelGroup = layout.createParallelGroup(Alignment.CENTER).addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        
+        ParallelGroup verticalParallelGroup = layout.createParallelGroup(LEADING).addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        SequentialGroup verticalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        
+        for (int i = 0; i < days.length; i++) {
+            SequentialGroup horizontalLocalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+            ParallelGroup verticalLocalParallelGroup = layout.createParallelGroup(LEADING).addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+            days[i] = new JButton[7];
+            for (int j = 0; j < days[i].length; j++) {
+                days[i][j] = new JButton(model.getDayNumber(i, j));
+                days[i][j].setMinimumSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
+                days[i][j].setPreferredSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
+                days[i][j].setHorizontalAlignment(CENTER);
+                days[i][j].setVerticalAlignment(CENTER);
+                
+                horizontalLocalSequentialGroup.addComponent(days[i][j]);
+                horizontalLocalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+                verticalLocalParallelGroup.addComponent(days[i][j]);
+                verticalLocalParallelGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+            }
+            
+            horizontalParallelGroup.addGroup(horizontalLocalSequentialGroup);
+            horizontalParallelGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+            
+            verticalSequentialGroup.addGroup(verticalLocalParallelGroup);
+            verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        }
+        
+        layout.setHorizontalGroup(horizontalParallelGroup);
+        
+        verticalParallelGroup.addGroup(verticalSequentialGroup);
+        verticalParallelGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        layout.setVerticalGroup(verticalParallelGroup);
+    }
+    
+    private void setPanel() {
+    
+        setMinimumSize(new Dimension(weekNumberPannelMinimumHeight, dayNamePannelMinimumWidth));
+        setPreferredSize(new Dimension(weekNumberPannelMinimumHeight, dayNamePannelMinimumWidth));
+        
     }
     
     private void initComponents() {
@@ -51,24 +102,25 @@ public class NotebookDaysPannel extends JPanel {
                 days[i][j].setText(model.getDayNumber(i, j));
                 days[i][j].setMinimumSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
                 days[i][j].setPreferredSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
-                days[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 days[i][j].setHorizontalAlignment(CENTER);
                 days[i][j].setVerticalAlignment(CENTER);
                 
                 horizontalLocalSequentialGroup.addComponent(days[i][j], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
+                horizontalLocalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
                 verticalLocalParallelGroup.addComponent(days[i][j], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
             }
             
             horizontalParallelGroup2.addGroup(horizontalLocalSequentialGroup);
             verticalSequentialGroup.addGroup(verticalLocalParallelGroup);
+            verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         }
         
         horizontalSequentialGroup.addGroup(horizontalParallelGroup2);
-        horizontalSequentialGroup.addContainerGap();
+        //        horizontalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         horizontalParallelGroup.addGroup(horizontalSequentialGroup);
         daysPannelLayout.setHorizontalGroup(horizontalParallelGroup);
         
-        verticalSequentialGroup.addContainerGap();
+        //        verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         verticalParallelGroup.addGroup(verticalSequentialGroup);
         daysPannelLayout.setVerticalGroup(verticalParallelGroup);
     }

@@ -27,7 +27,38 @@ public class NotebookDaysNamePanel extends JPanel {
     public NotebookDaysNamePanel(NotebookModel model) {
     
         this.model = model;
-        initComponents();
+        //        initComponents();
+        initComponents2();
+    }
+    
+    private void initComponents2() {
+    
+        GroupLayout layout = new GroupLayout(this);
+        setLayout(layout);
+        
+        SequentialGroup horizontalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);;
+        SequentialGroup verticalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        ParallelGroup verticalParallelGroup = layout.createParallelGroup(LEADING).addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        
+        for (int i = 0; i < daysName.length; i++) {
+            daysName[i] = new JLabel(model.getDayName(i));
+            daysName[i].setHorizontalAlignment(CENTER);
+            daysName[i].setVerticalAlignment(CENTER);
+            daysName[i].setMinimumSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
+            daysName[i].setPreferredSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
+            daysName[i].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            
+            horizontalSequentialGroup.addComponent(daysName[i]);
+            horizontalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+            verticalParallelGroup.addComponent(daysName[i]);
+            verticalParallelGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
+        }
+        
+        layout.setHorizontalGroup(horizontalSequentialGroup);
+        
+        verticalSequentialGroup.addGroup(verticalParallelGroup);
+        layout.setVerticalGroup(verticalSequentialGroup);
+        
     }
     
     private void initComponents() {

@@ -11,7 +11,6 @@ import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import notebookAbstract.AbstractView;
 
@@ -21,9 +20,8 @@ public class NotebookView extends JFrame implements AbstractView {
     private JLabel currentMonthName = new JLabel();
     private NotebookDaysNamePanel dayNamePannel = null;
     private NotebookWeeksNumberPannel weekNumberPannel = null;
-    private JPanel daysPannel = new JPanel();
+    private NotebookDaysPannel daysPannel = null;
     private NotebookMenuBar menuBar = new NotebookMenuBar();
-    private Dimension preferedButtonDimension = new Dimension(73, 73);
     
     public NotebookView(NotebookController controller, NotebookModel model) {
     
@@ -47,6 +45,7 @@ public class NotebookView extends JFrame implements AbstractView {
         currentMonthName.setPreferredSize(new Dimension(dayNamePannelMinimumHeight, weekNumberPannelMinimumWidht));
         dayNamePannel = new NotebookDaysNamePanel(model);
         weekNumberPannel = new NotebookWeeksNumberPannel(model);
+        daysPannel = new NotebookDaysPannel(model);
         
         dayNamePannel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         weekNumberPannel.setBorder(BorderFactory.createLineBorder(Color.BLACK));

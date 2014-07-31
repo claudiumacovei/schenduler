@@ -25,11 +25,11 @@ import javax.swing.JButton;
 import notebook.NotebookModel;
 import notebook.abstractc.AbstractPanel;
 
-public class NotebookDaysPannel extends AbstractPanel {
+public class NotebookDaysPanel extends AbstractPanel {
     NotebookModel model = null;
     private JButton[][] days = new JButton[6][7];
     
-    public NotebookDaysPannel(NotebookModel model) {
+    public NotebookDaysPanel(NotebookModel model) {
     
         this.model = model;
         initComponents();

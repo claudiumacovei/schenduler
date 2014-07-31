@@ -20,17 +20,17 @@ import javax.swing.JLabel;
 
 import notebook.abstractc.AbstractView;
 import notebook.swing.NotebookDaysNamePanel;
-import notebook.swing.NotebookDaysPannel;
+import notebook.swing.NotebookDaysPanel;
 import notebook.swing.NotebookMenuBar;
-import notebook.swing.NotebookWeeksNumberPannel;
+import notebook.swing.NotebookWeeksNumberPanel;
 
 public class NotebookView extends AbstractView {
     private final NotebookController controller;
     private final NotebookModel model;
     private JLabel currentMonthName = new JLabel();
     private NotebookDaysNamePanel dayNamePannel = null;
-    private NotebookWeeksNumberPannel weekNumberPannel = null;
-    private NotebookDaysPannel daysPannel = null;
+    private NotebookWeeksNumberPanel weekNumberPannel = null;
+    private NotebookDaysPanel daysPannel = null;
     private NotebookMenuBar menuBar = new NotebookMenuBar();
     
     public NotebookView(NotebookController controller, NotebookModel model) {

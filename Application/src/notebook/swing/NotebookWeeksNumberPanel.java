@@ -22,11 +22,11 @@ import javax.swing.JLabel;
 import notebook.NotebookModel;
 import notebook.abstractc.AbstractPanel;
 
-public class NotebookWeeksNumberPannel extends AbstractPanel {
+public class NotebookWeeksNumberPanel extends AbstractPanel {
     private NotebookModel model = null;
     private JLabel[] weekNumber = new JLabel[6];
     
-    public NotebookWeeksNumberPannel(NotebookModel model) {
+    public NotebookWeeksNumberPanel(NotebookModel model) {
     
         this.model = model;
         initComponents();

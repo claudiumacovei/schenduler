@@ -7,45 +7,57 @@ import static notebook.utils.NotebookDay.SUNDAY;
 import static notebook.utils.NotebookDay.THURSDAY;
 import static notebook.utils.NotebookDay.TUESDAY;
 import static notebook.utils.NotebookDay.WEDNESDAY;
+
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import notebook.abstractc.AbstractModel;
 import notebook.swing.NotebookDaysNamePanel;
-import notebook.swing.NotebookDaysPannel;
-import notebook.swing.NotebookWeeksNumberPannel;
+import notebook.swing.NotebookDaysPanel;
+import notebook.swing.NotebookWeeksNumberPanel;
 import notebook.utils.NotebookCalendar;
+import notebook.utils.NotebookDay;
 
 public class NotebookModel extends AbstractModel {
     private NotebookController controller = null;
     private String name = "MainApp";
     private boolean isMondayFirstDayOfWeek = true;
     private NotebookDaysNamePanel notebookDaysNamePanel = null;
-    private NotebookDaysPannel notebookDaysPannel = null;
-    private NotebookWeeksNumberPannel notebookWeeksNumberPannel = null;
+    private NotebookDaysPanel notebookDaysPannel = null;
+    private NotebookWeeksNumberPanel notebookWeeksNumberPannel = null;
     private NotebookCalendar calendar = new NotebookCalendar();
     
     public NotebookModel(NotebookController controller) {
     
         this.controller = controller;
         notebookDaysNamePanel = new NotebookDaysNamePanel(this);
-        notebookDaysPannel = new NotebookDaysPannel(this);
-        notebookWeeksNumberPannel = new NotebookWeeksNumberPannel(this);
+        notebookDaysPannel = new NotebookDaysPanel(this);
+        notebookWeeksNumberPannel = new NotebookWeeksNumberPanel(this);
+        if (isMondayFirstDayOfWeek)
+            calendar.setFirstDayOfWeek(Calendar.MONDAY);
+        else
+            calendar.setFirstDayOfWeek(Calendar.SUNDAY);
+        
     }
     
-    public NotebookDaysPannel getNotebookDaysPannel() {
+    public NotebookDaysPanel getNotebookDaysPannel() {
     
         return notebookDaysPannel;
     }
     
-    public NotebookWeeksNumberPannel getNotebookWeeksNumberPannel() {
+    public NotebookWeeksNumberPanel getNotebookWeeksNumberPannel() {
     
         return notebookWeeksNumberPannel;
     }
     
-    public void setNotebookDaysPannel(NotebookDaysPannel notebookDaysPannel) {
+    public void setNotebookDaysPannel(NotebookDaysPanel notebookDaysPannel) {
     
         this.notebookDaysPannel = notebookDaysPannel;
     }
     
-    public void setNotebookWeeksNumberPannel(NotebookWeeksNumberPannel notebookWeeksNumberPannel) {
+    public void setNotebookWeeksNumberPannel(NotebookWeeksNumberPanel notebookWeeksNumberPannel) {
     
         this.notebookWeeksNumberPannel = notebookWeeksNumberPannel;
     }
@@ -70,58 +82,46 @@ public class NotebookModel extends AbstractModel {
         return name;
     }
     
+    private static Map<Integer, NotebookDay> weekDaysMap = new HashMap<Integer, NotebookDay>();
+    static {
+        weekDaysMap.put(0, MONDAY);
+        weekDaysMap.put(1, TUESDAY);
+        weekDaysMap.put(2, WEDNESDAY);
+        weekDaysMap.put(3, THURSDAY);
+        weekDaysMap.put(4, FRIDAY);
+        weekDaysMap.put(5, SATURDAY);
+        weekDaysMap.put(6, SUNDAY);
+    }
+    
+    public Integer getDayNumber(int value) {
+    
+        for (Entry<Integer, NotebookDay> entry : weekDaysMap.entrySet()) {
+            if (entry.getValue().getCalendarDay().equals(value))
+                return entry.getKey();
+        }
+        
+        return null;
+    }
+    
     public String getDayName(int i) {
     
         if (isMondayFirstDayOfWeek) {
-            switch (i + 1) {
-                case 1:
-                    return MONDAY.getDayName();
-                case 2:
-                    return TUESDAY.getDayName();
-                case 3:
-                    return WEDNESDAY.getDayName();
-                case 4:
-                    return THURSDAY.getDayName();
-                case 5:
-                    return FRIDAY.getDayName();
-                case 6:
-                    return SATURDAY.getDayName();
-                case 7:
-                    return SUNDAY.getDayName();
-                default:
-                    break;
-            }
+            return weekDaysMap.get(i).toString();
         } else {
-            switch (i + 1) {
-                case 1:
-                    return SUNDAY.getDayName();
-                case 2:
-                    return MONDAY.getDayName();
-                case 3:
-                    return TUESDAY.getDayName();
-                case 4:
-                    return WEDNESDAY.getDayName();
-                case 5:
-                    return THURSDAY.getDayName();
-                case 6:
-                    return FRIDAY.getDayName();
-                case 7:
-                    return SATURDAY.getDayName();
-                default:
-                    break;
-            }
+            return weekDaysMap.get((i + 6) % weekDaysMap.size()).toString();
         }
-        
-        return "undefined";
     }
     
     public String getWeekNumber(int i) {
     
-        return (new Integer(i)).toString();
+        return (this.calendar.getCurrentWeekNumberInYear() + i) + "";
     }
     
     public String getDayNumber(int i, int j) {
     
-        return (new Integer(i)).toString() + " / " + (new Integer(j)).toString();
+        Integer dayNumber = getDayNumber(calendar.getDayOfWeek());
+        
+        return calendar.addDays(Calendar.getInstance().getTime(), (7 - dayNumber) + (i - 1) * 7 + j).toString();
+        
     }
 }

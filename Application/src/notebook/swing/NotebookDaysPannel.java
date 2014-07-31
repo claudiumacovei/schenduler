@@ -80,8 +80,7 @@ public class NotebookDaysPannel extends AbstractPanel {
                     
                     private void daysButtonActionPerformed(int currentI, int currentJ, ActionEvent arg0) {
                     
-                        System.out.println("DayButtonPressed: i=" + currentI + " j=" + currentJ + " actionEvent: " + arg0);
-                        
+                        getLogger().warn("DayButtonPressed: i=" + currentI + " j=" + currentJ + " actionEvent: " + arg0);
                     }
                 });
                 

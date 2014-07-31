@@ -4,7 +4,7 @@ import java.beans.PropertyChangeEvent;
 
 import notebook.abstractc.AbstractView;
 
-public class PageView implements AbstractView {
+public class PageView extends AbstractView {
     
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {

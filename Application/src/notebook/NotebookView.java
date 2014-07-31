@@ -16,7 +16,6 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import notebook.abstractc.AbstractView;
@@ -25,7 +24,7 @@ import notebook.swing.NotebookDaysPannel;
 import notebook.swing.NotebookMenuBar;
 import notebook.swing.NotebookWeeksNumberPannel;
 
-public class NotebookView extends JFrame implements AbstractView {
+public class NotebookView extends AbstractView {
     private final NotebookController controller;
     private final NotebookModel model;
     private JLabel currentMonthName = new JLabel();

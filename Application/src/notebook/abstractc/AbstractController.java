@@ -5,10 +5,16 @@ import java.beans.PropertyChangeListener;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import notebook.NotebookView;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public abstract class AbstractController implements PropertyChangeListener {
     
     private ArrayList<AbstractView> registeredViews;
     private ArrayList<AbstractModel> registeredModels;
+    private final Logger logger = LoggerFactory.getLogger(NotebookView.class);
     
     public AbstractController() {
     
@@ -74,5 +80,10 @@ public abstract class AbstractController implements PropertyChangeListener {
                 System.out.println("Exception catched: " + ex.getMessage());
             }
         }
+    }
+    
+    protected Logger getLogger() {
+    
+        return this.logger;
     }
 }

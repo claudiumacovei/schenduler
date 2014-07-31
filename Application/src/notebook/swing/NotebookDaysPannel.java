@@ -1,4 +1,4 @@
-package notebook.pannels;
+package notebook.swing;
 
 import static javax.swing.GroupLayout.Alignment.BASELINE;
 import static javax.swing.GroupLayout.Alignment.LEADING;

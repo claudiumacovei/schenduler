@@ -1,4 +1,4 @@
-package notebook.pannels;
+package notebook.swing;
 
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;

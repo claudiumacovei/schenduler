@@ -1,4 +1,4 @@
-package notebook;
+package notebook.swing;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;

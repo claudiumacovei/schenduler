@@ -19,9 +19,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import notebook.abstractc.AbstractView;
-import notebook.pannels.NotebookDaysNamePanel;
-import notebook.pannels.NotebookDaysPannel;
-import notebook.pannels.NotebookWeeksNumberPannel;
+import notebook.swing.NotebookDaysNamePanel;
+import notebook.swing.NotebookDaysPannel;
+import notebook.swing.NotebookMenuBar;
+import notebook.swing.NotebookWeeksNumberPannel;
 
 public class NotebookView extends JFrame implements AbstractView {
     private final NotebookController controller;

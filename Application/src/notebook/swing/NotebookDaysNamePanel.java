@@ -33,6 +33,7 @@ public class NotebookDaysNamePanel extends AbstractPanel {
         setPanel();
     }
     
+    @Override
     protected void setPanel() {
     
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -40,6 +41,7 @@ public class NotebookDaysNamePanel extends AbstractPanel {
         setPreferredSize(new Dimension(dayNamePannelMinimumWidth, dayNamePannelMinimumHeight));
     }
     
+    @Override
     protected void initComponents() {
     
         GroupLayout layout = new GroupLayout(this);

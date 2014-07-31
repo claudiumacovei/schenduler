@@ -55,9 +55,9 @@ public class NotebookView extends AbstractView {
         currentMonthName.setMinimumSize(new Dimension(dayNamePannelMinimumHeight, weekNumberPannelMinimumWidht));
         currentMonthName.setPreferredSize(new Dimension(dayNamePannelMinimumHeight, weekNumberPannelMinimumWidht));
         
-        dayNamePannel = new NotebookDaysNamePanel(model);
-        weekNumberPannel = new NotebookWeeksNumberPannel(model);
-        daysPannel = new NotebookDaysPannel(model);
+        dayNamePannel = model.getNotebookDaysNamePanel();
+        weekNumberPannel = model.getNotebookWeeksNumberPannel();
+        daysPannel = model.getNotebookDaysPannel();
         
         initPannels();
         
@@ -109,8 +109,6 @@ public class NotebookView extends AbstractView {
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
-        // TODO Auto-generated method stub
-        
     }
     
     public static void main(String args[]) {

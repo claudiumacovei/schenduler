@@ -19,6 +19,9 @@ public class NotebookCalendar {
         
         calendar.set(Calendar.DAY_OF_MONTH, 1);
         logger.info("" + calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.ALL_STYLES, Locale.ENGLISH));
+        logger.info("" + calendar.get(Calendar.WEEK_OF_YEAR));
+        logger.info("" + calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH));
+        logger.info("" + (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY));
         
     }
 }

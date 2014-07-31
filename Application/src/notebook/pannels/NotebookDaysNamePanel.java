@@ -1,4 +1,4 @@
-package notebook;
+package notebook.pannels;
 
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;
@@ -19,6 +19,7 @@ import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JLabel;
 
+import notebook.NotebookModel;
 import notebookAbstract.AbstractPanel;
 
 public class NotebookDaysNamePanel extends AbstractPanel {

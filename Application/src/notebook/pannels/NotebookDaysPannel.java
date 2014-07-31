@@ -1,4 +1,4 @@
-package notebook;
+package notebook.pannels;
 
 import static javax.swing.GroupLayout.Alignment.BASELINE;
 import static javax.swing.GroupLayout.Alignment.LEADING;
@@ -22,6 +22,7 @@ import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JButton;
 
+import notebook.NotebookModel;
 import notebookAbstract.AbstractPanel;
 
 public class NotebookDaysPannel extends AbstractPanel {

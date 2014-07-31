@@ -18,6 +18,9 @@ import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import notebook.pannels.NotebookDaysNamePanel;
+import notebook.pannels.NotebookDaysPannel;
+import notebook.pannels.NotebookWeeksNumberPannel;
 import notebookAbstract.AbstractView;
 
 public class NotebookView extends JFrame implements AbstractView {

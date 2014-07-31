@@ -1,6 +1,6 @@
 package notebook.page;
 
-import notebookAbstract.AbstractModel;
+import notebook.abstractc.AbstractModel;
 
 public class PageModel extends AbstractModel {
     

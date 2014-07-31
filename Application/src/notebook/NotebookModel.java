@@ -1,6 +1,6 @@
 package notebook;
 
-import notebookAbstract.AbstractModel;
+import notebook.abstractc.AbstractModel;
 
 public class NotebookModel extends AbstractModel {
     private NotebookController controller = null;

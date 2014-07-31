@@ -23,7 +23,7 @@ import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JButton;
 
 import notebook.NotebookModel;
-import notebookAbstract.AbstractPanel;
+import notebook.abstractc.AbstractPanel;
 
 public class NotebookDaysPannel extends AbstractPanel {
     NotebookModel model = null;

@@ -1,6 +1,6 @@
 package notebook;
 
-import notebookAbstract.AbstractController;
+import notebook.abstractc.AbstractController;
 
 public class NotebookController extends AbstractController {
     

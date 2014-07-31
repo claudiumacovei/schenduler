@@ -1,4 +1,4 @@
-package notebookAbstract;
+package notebook.abstractc;
 
 import javax.swing.JPanel;
 

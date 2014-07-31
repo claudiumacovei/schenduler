@@ -2,7 +2,7 @@ package notebook.page;
 
 import java.beans.PropertyChangeEvent;
 
-import notebookAbstract.AbstractView;
+import notebook.abstractc.AbstractView;
 
 public class PageView implements AbstractView {
     

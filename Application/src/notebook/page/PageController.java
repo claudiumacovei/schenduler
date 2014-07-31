@@ -1,6 +1,6 @@
 package notebook.page;
 
-import notebookAbstract.AbstractController;
+import notebook.abstractc.AbstractController;
 
 public class PageController extends AbstractController {
     

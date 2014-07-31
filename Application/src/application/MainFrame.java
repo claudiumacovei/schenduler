@@ -1,6 +1,6 @@
 package application;
 
-import static notebook.NotebookConstant.defaultLAF;
+import static notebook.utils.NotebookConstant.defaultLAF;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;

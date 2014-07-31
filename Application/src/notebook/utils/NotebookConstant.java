@@ -1,4 +1,4 @@
-package notebook;
+package notebook.utils;
 
 public class NotebookConstant {
     

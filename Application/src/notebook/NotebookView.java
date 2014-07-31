@@ -1,11 +1,11 @@
 package notebook;
 
-import static notebook.NotebookConstant.dayNamePannelMinimumHeight;
-import static notebook.NotebookConstant.defaultLAF;
-import static notebook.NotebookConstant.gapMaximumSize;
-import static notebook.NotebookConstant.gapMinimumSize;
-import static notebook.NotebookConstant.gapPreferedSize;
-import static notebook.NotebookConstant.weekNumberPannelMinimumWidht;
+import static notebook.utils.NotebookConstant.dayNamePannelMinimumHeight;
+import static notebook.utils.NotebookConstant.defaultLAF;
+import static notebook.utils.NotebookConstant.gapMaximumSize;
+import static notebook.utils.NotebookConstant.gapMinimumSize;
+import static notebook.utils.NotebookConstant.gapPreferedSize;
+import static notebook.utils.NotebookConstant.weekNumberPannelMinimumWidht;
 
 import java.awt.Color;
 import java.awt.Dimension;

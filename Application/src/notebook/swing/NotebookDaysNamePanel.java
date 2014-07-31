@@ -2,13 +2,13 @@ package notebook.swing;
 
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;
-import static notebook.NotebookConstant.buttonMinimumHeight;
-import static notebook.NotebookConstant.buttonMinimumWidth;
-import static notebook.NotebookConstant.dayNamePannelMinimumHeight;
-import static notebook.NotebookConstant.dayNamePannelMinimumWidth;
-import static notebook.NotebookConstant.gapMaximumSize;
-import static notebook.NotebookConstant.gapMinimumSize;
-import static notebook.NotebookConstant.gapPreferedSize;
+import static notebook.utils.NotebookConstant.buttonMinimumHeight;
+import static notebook.utils.NotebookConstant.buttonMinimumWidth;
+import static notebook.utils.NotebookConstant.dayNamePannelMinimumHeight;
+import static notebook.utils.NotebookConstant.dayNamePannelMinimumWidth;
+import static notebook.utils.NotebookConstant.gapMaximumSize;
+import static notebook.utils.NotebookConstant.gapMinimumSize;
+import static notebook.utils.NotebookConstant.gapPreferedSize;
 
 import java.awt.Color;
 import java.awt.Dimension;

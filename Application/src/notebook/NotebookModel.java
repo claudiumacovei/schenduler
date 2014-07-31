@@ -1,12 +1,12 @@
 package notebook;
 
-import static notebook.NotebookDay.FRIDAY;
-import static notebook.NotebookDay.MONDAY;
-import static notebook.NotebookDay.SATURDAY;
-import static notebook.NotebookDay.SUNDAY;
-import static notebook.NotebookDay.THURSDAY;
-import static notebook.NotebookDay.TUESDAY;
-import static notebook.NotebookDay.WEDNESDAY;
+import static notebook.utils.NotebookDay.FRIDAY;
+import static notebook.utils.NotebookDay.MONDAY;
+import static notebook.utils.NotebookDay.SATURDAY;
+import static notebook.utils.NotebookDay.SUNDAY;
+import static notebook.utils.NotebookDay.THURSDAY;
+import static notebook.utils.NotebookDay.TUESDAY;
+import static notebook.utils.NotebookDay.WEDNESDAY;
 import notebook.abstractc.AbstractModel;
 import notebook.swing.NotebookDaysNamePanel;
 import notebook.swing.NotebookDaysPannel;

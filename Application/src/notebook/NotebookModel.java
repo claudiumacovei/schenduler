@@ -11,6 +11,7 @@ import notebook.abstractc.AbstractModel;
 import notebook.swing.NotebookDaysNamePanel;
 import notebook.swing.NotebookDaysPannel;
 import notebook.swing.NotebookWeeksNumberPannel;
+import notebook.utils.NotebookCalendar;
 
 public class NotebookModel extends AbstractModel {
     private NotebookController controller = null;
@@ -19,6 +20,7 @@ public class NotebookModel extends AbstractModel {
     private NotebookDaysNamePanel notebookDaysNamePanel = null;
     private NotebookDaysPannel notebookDaysPannel = null;
     private NotebookWeeksNumberPannel notebookWeeksNumberPannel = null;
+    private NotebookCalendar calendar = new NotebookCalendar();
     
     public NotebookModel(NotebookController controller) {
     

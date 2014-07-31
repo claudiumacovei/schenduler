@@ -1,6 +1,7 @@
 package notebook;
 
 import static notebook.NotebookConstant.dayNamePannelMinimumHeight;
+import static notebook.NotebookConstant.defaultLAF;
 import static notebook.NotebookConstant.gapMaximumSize;
 import static notebook.NotebookConstant.gapMinimumSize;
 import static notebook.NotebookConstant.gapPreferedSize;
@@ -123,7 +124,7 @@ public class NotebookView extends JFrame implements AbstractView {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 //                if ("Nimbus".equals(info.getName())) {
-                if ("Metal".equals(info.getName())) {
+                if (defaultLAF.equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

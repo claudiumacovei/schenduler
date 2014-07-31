@@ -11,4 +11,5 @@ public class NotebookConstant {
     public static final int gapMinimumSize = 10;
     public static final int gapPreferedSize = 10;
     public static final int gapMaximumSize = 10;
+    public static final String defaultLAF = "Metal";
 }

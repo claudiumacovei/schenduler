@@ -20,14 +20,13 @@ import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JLabel;
 
-import notebook.NotebookModel;
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
 public class NotebookDayNamePanelView extends AbstractPanelView {
-    NotebookModel model = null;
+    NotebookDayNamePanelModel model = null;
     private JLabel[] daysName = new JLabel[7];
     
-    public NotebookDayNamePanelView(NotebookModel model) {
+    public NotebookDayNamePanelView(NotebookDayNamePanelModel model) {
     
         this.model = model;
         initComponents();

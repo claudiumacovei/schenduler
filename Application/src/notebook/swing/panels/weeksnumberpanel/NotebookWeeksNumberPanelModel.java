@@ -12,4 +12,10 @@ public class NotebookWeeksNumberPanelModel extends AbstractPanelModel {
         // TODO Auto-generated constructor stub
     }
     
+    public String getWeekNumber(int i) {
+    
+        // TODO Auto-generated method stub
+        return null;
+    }
+    
 }

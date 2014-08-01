@@ -5,11 +5,36 @@ import notebook.swing.panels.abstractc.AbstractPanelController;
 import org.slf4j.Logger;
 
 public class NotebookDayNamePanelController extends AbstractPanelController {
+    NotebookDayNamePanelModel model = null;
+    NotebookDayNamePanelView view = null;
     
     public NotebookDayNamePanelController(Logger logger) {
     
         super(logger);
-        // TODO Auto-generated constructor stub
+        model = new NotebookDayNamePanelModel(logger);
+        view = new NotebookDayNamePanelView(model);
+        addModel(model);
+        addView(view);
+    }
+    
+    public NotebookDayNamePanelModel getModel() {
+    
+        return model;
+    }
+    
+    public NotebookDayNamePanelView getView() {
+    
+        return view;
+    }
+    
+    public void setModel(NotebookDayNamePanelModel model) {
+    
+        this.model = model;
+    }
+    
+    public void setView(NotebookDayNamePanelView view) {
+    
+        this.view = view;
     }
     
 }

@@ -14,10 +14,10 @@ import javax.swing.GroupLayout.SequentialGroup;
 
 import notebook.abstractc.AbstractView;
 import notebook.swing.NotebookMenuBar;
-import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
-import notebook.swing.panels.daynamepanel.NotebookDayNamePanelView;
-import notebook.swing.panels.dayspanel.NotebookDaysPanelView;
-import notebook.swing.panels.weeksnumberpanel.NotebookWeeksNumberPanelView;
+import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelController;
+import notebook.swing.panels.daynamepanel.NotebookDayNamePanelController;
+import notebook.swing.panels.dayspanel.NotebookDaysPanelController;
+import notebook.swing.panels.weeksnumberpanel.NotebookWeeksNumberPanelController;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,10 +25,10 @@ import org.slf4j.LoggerFactory;
 public class NotebookView extends AbstractView {
     private final NotebookController controller;
     private final NotebookModel model;
-    private NotebookCurrentMonthPanelView currentMonthPanel = null;
-    private NotebookDayNamePanelView dayNamePannel = null;
-    private NotebookWeeksNumberPanelView weekNumberPannel = null;
-    private NotebookDaysPanelView daysPannel = null;
+    private NotebookDayNamePanelController daysNamePanelController = null;
+    private NotebookCurrentMonthPanelController currentMonthPanelController = null;
+    private NotebookWeeksNumberPanelController weeksNumberPanelController = null;
+    private NotebookDaysPanelController daysPanelController = null;
     private NotebookMenuBar menuBar = null;
     
     public NotebookView(NotebookController controller, NotebookModel model, Logger logger) {
@@ -36,7 +36,7 @@ public class NotebookView extends AbstractView {
         super(logger);
         this.controller = controller;
         this.model = model;
-        initComponents();
+        initComponents(logger);
         setFrame();
         
     }
@@ -48,15 +48,17 @@ public class NotebookView extends AbstractView {
         
     }
     
-    private void initComponents() {
+    private void initComponents(Logger logger) {
     
         menuBar = new NotebookMenuBar(controller);
         setJMenuBar(menuBar);
         
-        //        dayNamePannel = model.getNotebookDaysNamePanel();
         //        weekNumberPannel = model.getNotebookWeeksNumberPannel();
         //        daysPannel = model.getNotebookDaysPannel();
-        //        currentMonthPanel = model.getNotebookCurrentMonthPanel();
+        daysNamePanelController = new NotebookDayNamePanelController(logger);
+        currentMonthPanelController = new NotebookCurrentMonthPanelController(logger);
+        weeksNumberPanelController = new NotebookWeeksNumberPanelController(logger);
+        daysPanelController = new NotebookDaysPanelController(logger);
         
         initPannels();
         
@@ -73,14 +75,14 @@ public class NotebookView extends AbstractView {
         SequentialGroup horizontalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         ParallelGroup horizontalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
         SequentialGroup horizontalSequentialGroup2 = layout.createSequentialGroup();
-        horizontalSequentialGroup2.addComponent(currentMonthPanel);
+        horizontalSequentialGroup2.addComponent(currentMonthPanelController.getView());
         horizontalSequentialGroup2.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
-        horizontalSequentialGroup2.addComponent(dayNamePannel);
+        horizontalSequentialGroup2.addComponent(daysNamePanelController.getView());
         horizontalParallelGroup2.addGroup(horizontalSequentialGroup2);
         horizontalSequentialGroup2 = layout.createSequentialGroup();
-        horizontalSequentialGroup2.addComponent(weekNumberPannel);
+        horizontalSequentialGroup2.addComponent(weeksNumberPanelController.getView());
         horizontalSequentialGroup2.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
-        horizontalSequentialGroup2.addComponent(daysPannel);
+        horizontalSequentialGroup2.addComponent(daysPanelController.getView());
         horizontalParallelGroup2.addGroup(horizontalSequentialGroup2);
         horizontalSequentialGroup.addGroup(horizontalParallelGroup2);
         horizontalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
@@ -91,13 +93,13 @@ public class NotebookView extends AbstractView {
         ParallelGroup verticalParallelGroup = layout.createParallelGroup(Alignment.LEADING);
         SequentialGroup verticalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         ParallelGroup verticalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
-        verticalParallelGroup2.addComponent(dayNamePannel);
-        verticalParallelGroup2.addComponent(currentMonthPanel);
+        verticalParallelGroup2.addComponent(daysNamePanelController.getView());
+        verticalParallelGroup2.addComponent(currentMonthPanelController.getView());
         verticalSequentialGroup.addGroup(verticalParallelGroup2);
         verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         verticalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
-        verticalParallelGroup2.addComponent(weekNumberPannel);
-        verticalParallelGroup2.addComponent(daysPannel);
+        verticalParallelGroup2.addComponent(weeksNumberPanelController.getView());
+        verticalParallelGroup2.addComponent(daysPanelController.getView());
         verticalSequentialGroup.addGroup(verticalParallelGroup2);
         verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         verticalParallelGroup.addGroup(verticalSequentialGroup);

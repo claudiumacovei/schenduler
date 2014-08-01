@@ -20,14 +20,13 @@ import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JLabel;
 
-import notebook.NotebookModel;
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
 public class NotebookWeeksNumberPanelView extends AbstractPanelView {
-    private NotebookModel model = null;
+    private NotebookWeeksNumberPanelModel model = null;
     private JLabel[] weekNumber = new JLabel[6];
     
-    public NotebookWeeksNumberPanelView(NotebookModel model) {
+    public NotebookWeeksNumberPanelView(NotebookWeeksNumberPanelModel model) {
     
         this.model = model;
         initComponents();

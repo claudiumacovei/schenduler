@@ -12,4 +12,10 @@ public class NotebookDayNamePanelModel extends AbstractPanelModel {
         // TODO Auto-generated constructor stub
     }
     
+    public String getDayName(int i) {
+    
+        // TODO Auto-generated method stub
+        return null;
+    }
+    
 }

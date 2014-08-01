@@ -23,16 +23,14 @@ import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JButton;
 
-import notebook.NotebookController;
-import notebook.NotebookModel;
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
 public class NotebookDaysPanelView extends AbstractPanelView {
-    NotebookModel model = null;
-    NotebookController controller = null;
+    NotebookDaysPanelModel model = null;
+    NotebookDaysPanelController controller = null;
     private JButton[][] days = new JButton[6][7];
     
-    public NotebookDaysPanelView(NotebookModel model, NotebookController controller) {
+    public NotebookDaysPanelView(NotebookDaysPanelModel model, NotebookDaysPanelController controller) {
     
         this.controller = controller;
         this.model = model;

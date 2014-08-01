@@ -5,15 +5,36 @@ import notebook.swing.panels.abstractc.AbstractPanelController;
 import org.slf4j.Logger;
 
 public class NotebookCurrentMonthPanelController extends AbstractPanelController {
+    NotebookCurrentMonthPanelModel model = null;
+    NotebookCurrentMonthPanelView view = null;
     
     public NotebookCurrentMonthPanelController(Logger logger) {
     
         super(logger);
-        NotebookCurrentMonthPanelModel model = new NotebookCurrentMonthPanelModel(this, logger);
-        NotebookCurrentMonthPanelView view = new NotebookCurrentMonthPanelView(model, this, logger);
-        view.setVisible(true);
+        model = new NotebookCurrentMonthPanelModel(this, logger);
+        view = new NotebookCurrentMonthPanelView(model, this, logger);
         addModel(model);
         addView(view);
+    }
+    
+    public NotebookCurrentMonthPanelModel getModel() {
+    
+        return model;
+    }
+    
+    public NotebookCurrentMonthPanelView getView() {
+    
+        return view;
+    }
+    
+    public void setModel(NotebookCurrentMonthPanelModel model) {
+    
+        this.model = model;
+    }
+    
+    public void setView(NotebookCurrentMonthPanelView view) {
+    
+        this.view = view;
     }
     
 }

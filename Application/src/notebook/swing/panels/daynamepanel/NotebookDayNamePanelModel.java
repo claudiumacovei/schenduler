@@ -1,4 +1,4 @@
-package notebook.swing.daynamepanel;
+package notebook.swing.panels.daynamepanel;
 
 import notebook.swing.panels.abstractc.AbstractPanelModel;
 

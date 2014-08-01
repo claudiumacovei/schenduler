@@ -1,4 +1,4 @@
-package notebook.swing.daynamepanel;
+package notebook.swing.panels.daynamepanel;
 
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;

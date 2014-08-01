@@ -1,24 +1,19 @@
 package notebook;
 
-import static notebook.utils.NotebookConstant.dayNamePannelMinimumHeight;
 import static notebook.utils.NotebookConstant.defaultLAF;
 import static notebook.utils.NotebookConstant.gapMaximumSize;
 import static notebook.utils.NotebookConstant.gapMinimumSize;
 import static notebook.utils.NotebookConstant.gapPreferedSize;
-import static notebook.utils.NotebookConstant.weekNumberPannelMinimumWidht;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 
-import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
-import javax.swing.JLabel;
 
 import notebook.abstractc.AbstractView;
+import notebook.swing.NotebookCurrentMonthPanel;
 import notebook.swing.NotebookDaysNamePanel;
 import notebook.swing.NotebookDaysPanel;
 import notebook.swing.NotebookMenuBar;
@@ -27,7 +22,7 @@ import notebook.swing.NotebookWeeksNumberPanel;
 public class NotebookView extends AbstractView {
     private final NotebookController controller;
     private final NotebookModel model;
-    private JLabel currentMonthName = new JLabel();
+    private NotebookCurrentMonthPanel currentMonthPanel = null;
     private NotebookDaysNamePanel dayNamePannel = null;
     private NotebookWeeksNumberPanel weekNumberPannel = null;
     private NotebookDaysPanel daysPannel = null;
@@ -51,13 +46,11 @@ public class NotebookView extends AbstractView {
     private void initComponents() {
     
         setJMenuBar(menuBar);
-        currentMonthName.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        currentMonthName.setMinimumSize(new Dimension(dayNamePannelMinimumHeight, weekNumberPannelMinimumWidht));
-        currentMonthName.setPreferredSize(new Dimension(dayNamePannelMinimumHeight, weekNumberPannelMinimumWidht));
         
         dayNamePannel = model.getNotebookDaysNamePanel();
         weekNumberPannel = model.getNotebookWeeksNumberPannel();
         daysPannel = model.getNotebookDaysPannel();
+        currentMonthPanel = model.getNotebookCurrentMonthPanel();
         
         initPannels();
         
@@ -74,7 +67,7 @@ public class NotebookView extends AbstractView {
         SequentialGroup horizontalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         ParallelGroup horizontalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
         SequentialGroup horizontalSequentialGroup2 = layout.createSequentialGroup();
-        horizontalSequentialGroup2.addComponent(currentMonthName);
+        horizontalSequentialGroup2.addComponent(currentMonthPanel);
         horizontalSequentialGroup2.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         horizontalSequentialGroup2.addComponent(dayNamePannel);
         horizontalParallelGroup2.addGroup(horizontalSequentialGroup2);
@@ -93,7 +86,7 @@ public class NotebookView extends AbstractView {
         SequentialGroup verticalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         ParallelGroup verticalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
         verticalParallelGroup2.addComponent(dayNamePannel);
-        verticalParallelGroup2.addComponent(currentMonthName);
+        verticalParallelGroup2.addComponent(currentMonthPanel);
         verticalSequentialGroup.addGroup(verticalParallelGroup2);
         verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         verticalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);

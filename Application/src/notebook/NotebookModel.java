@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import notebook.abstractc.AbstractModel;
+import notebook.swing.NotebookCurrentMonthPanel;
 import notebook.swing.NotebookDaysNamePanel;
 import notebook.swing.NotebookDaysPanel;
 import notebook.swing.NotebookWeeksNumberPanel;
@@ -27,6 +28,7 @@ public class NotebookModel extends AbstractModel {
     private NotebookDaysNamePanel notebookDaysNamePanel = null;
     private NotebookDaysPanel notebookDaysPannel = null;
     private NotebookWeeksNumberPanel notebookWeeksNumberPannel = null;
+    private NotebookCurrentMonthPanel notebookCurrentMonthPanel = null;
     private NotebookCalendar calendar = new NotebookCalendar();
     
     public NotebookModel(NotebookController controller) {
@@ -35,6 +37,7 @@ public class NotebookModel extends AbstractModel {
         notebookDaysNamePanel = new NotebookDaysNamePanel(this);
         notebookDaysPannel = new NotebookDaysPanel(this);
         notebookWeeksNumberPannel = new NotebookWeeksNumberPanel(this);
+        notebookCurrentMonthPanel = new NotebookCurrentMonthPanel(this);
         if (isMondayFirstDayOfWeek)
             calendar.setFirstDayOfWeek(Calendar.MONDAY);
         else
@@ -123,5 +126,20 @@ public class NotebookModel extends AbstractModel {
         
         return calendar.addDays(Calendar.getInstance().getTime(), (7 - dayNumber) + (i - 1) * 7 + j).toString();
         
+    }
+    
+    public NotebookCurrentMonthPanel getNotebookCurrentMonthPanel() {
+    
+        return this.notebookCurrentMonthPanel;
+    }
+    
+    public String getCurrentMonthName() {
+    
+        return calendar.getCurrentMonthName();
+    }
+    
+    public String getCurrentYear() {
+    
+        return calendar.getCurrentYear();
     }
 }

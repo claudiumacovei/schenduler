@@ -6,24 +6,32 @@ import static notebook.utils.NotebookConstant.weekNumberPannelMinimumWidht;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.beans.PropertyChangeEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import notebook.NotebookModel;
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
+import org.slf4j.Logger;
+
 public class NotebookCurrentMonthPanelView extends AbstractPanelView {
-    NotebookModel model = null;
+    NotebookCurrentMonthPanelModel model = null;
+    NotebookCurrentMonthPanelController controller = null;
+    Logger logger = null;
     JLabel currentMonthName = new JLabel();
     JButton previousMonthButton = new JButton("<");
     JButton nextMonthButton = new JButton(">");
     
-    public NotebookCurrentMonthPanelView(NotebookModel model) {
+    public NotebookCurrentMonthPanelView(NotebookCurrentMonthPanelModel model, NotebookCurrentMonthPanelController controller, Logger logger) {
     
+        super();
         this.model = model;
+        this.controller = controller;
+        this.logger = logger;
+        
         initComponents();
         setPanel();
     }
@@ -53,6 +61,13 @@ public class NotebookCurrentMonthPanelView extends AbstractPanelView {
         setMinimumSize(new Dimension(weekNumberPannelMinimumWidht, dayNamePannelMinimumHeight));
         setPreferredSize(new Dimension(weekNumberPannelMinimumWidht, dayNamePannelMinimumHeight));
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        
+    }
+    
+    @Override
+    public void modelPropertyChange(PropertyChangeEvent evt) {
+    
+        // TODO Auto-generated method stub
         
     }
     

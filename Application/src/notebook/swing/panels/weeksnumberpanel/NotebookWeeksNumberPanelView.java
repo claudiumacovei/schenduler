@@ -12,6 +12,7 @@ import static notebook.utils.NotebookConstant.weekNumberPannelMinimumWidht;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.beans.PropertyChangeEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
@@ -42,6 +43,7 @@ public class NotebookWeeksNumberPanelView extends AbstractPanelView {
         
     }
     
+    @Override
     protected void initComponents() {
     
         GroupLayout layout = new GroupLayout(this);
@@ -74,6 +76,13 @@ public class NotebookWeeksNumberPanelView extends AbstractPanelView {
         
         layout.setHorizontalGroup(horizontalParallelGroup);
         layout.setVerticalGroup(verticalSequentialGroup);
+    }
+    
+    @Override
+    public void modelPropertyChange(PropertyChangeEvent evt) {
+    
+        // TODO Auto-generated method stub
+        
     }
     
 }

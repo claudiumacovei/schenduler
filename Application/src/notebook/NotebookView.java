@@ -53,10 +53,10 @@ public class NotebookView extends AbstractView {
         menuBar = new NotebookMenuBar(controller);
         setJMenuBar(menuBar);
         
-        dayNamePannel = model.getNotebookDaysNamePanel();
-        weekNumberPannel = model.getNotebookWeeksNumberPannel();
-        daysPannel = model.getNotebookDaysPannel();
-        currentMonthPanel = model.getNotebookCurrentMonthPanel();
+        //        dayNamePannel = model.getNotebookDaysNamePanel();
+        //        weekNumberPannel = model.getNotebookWeeksNumberPannel();
+        //        daysPannel = model.getNotebookDaysPannel();
+        //        currentMonthPanel = model.getNotebookCurrentMonthPanel();
         
         initPannels();
         

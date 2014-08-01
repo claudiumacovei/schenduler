@@ -14,65 +14,27 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import notebook.abstractc.AbstractModel;
-import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
-import notebook.swing.panels.daynamepanel.NotebookDayNamePanelView;
-import notebook.swing.panels.dayspanel.NotebookDaysPanelView;
-import notebook.swing.panels.weeksnumberpanel.NotebookWeeksNumberPanelView;
 import notebook.utils.NotebookCalendar;
 import notebook.utils.NotebookDay;
+
+import org.slf4j.Logger;
 
 public class NotebookModel extends AbstractModel {
     private NotebookController controller = null;
     private String name = "MainApp";
     private boolean isMondayFirstDayOfWeek = true;
-    private NotebookDayNamePanelView notebookDaysNamePanel = null;
-    private NotebookDaysPanelView notebookDaysPannel = null;
-    private NotebookWeeksNumberPanelView notebookWeeksNumberPannel = null;
-    private NotebookCurrentMonthPanelView notebookCurrentMonthPanel = null;
     private NotebookCalendar calendar = new NotebookCalendar();
     
-    public NotebookModel(NotebookController controller) {
+    public NotebookModel(NotebookController controller, Logger logger) {
     
+        super(logger);
         this.controller = controller;
-        notebookDaysNamePanel = new NotebookDayNamePanelView(this);
-        notebookDaysPannel = new NotebookDaysPanelView(this, controller);
-        notebookWeeksNumberPannel = new NotebookWeeksNumberPanelView(this);
-        notebookCurrentMonthPanel = new NotebookCurrentMonthPanelView(this);
+        
         if (isMondayFirstDayOfWeek)
             calendar.setFirstDayOfWeek(Calendar.MONDAY);
         else
             calendar.setFirstDayOfWeek(Calendar.SUNDAY);
         
-    }
-    
-    public NotebookDaysPanelView getNotebookDaysPannel() {
-    
-        return notebookDaysPannel;
-    }
-    
-    public NotebookWeeksNumberPanelView getNotebookWeeksNumberPannel() {
-    
-        return notebookWeeksNumberPannel;
-    }
-    
-    public void setNotebookDaysPannel(NotebookDaysPanelView notebookDaysPannel) {
-    
-        this.notebookDaysPannel = notebookDaysPannel;
-    }
-    
-    public void setNotebookWeeksNumberPannel(NotebookWeeksNumberPanelView notebookWeeksNumberPannel) {
-    
-        this.notebookWeeksNumberPannel = notebookWeeksNumberPannel;
-    }
-    
-    public NotebookDayNamePanelView getNotebookDaysNamePanel() {
-    
-        return notebookDaysNamePanel;
-    }
-    
-    public void setNotebookDaysNamePanel(NotebookDayNamePanelView notebookDaysNamePanel) {
-    
-        this.notebookDaysNamePanel = notebookDaysNamePanel;
     }
     
     public void setName(String name) {
@@ -126,11 +88,6 @@ public class NotebookModel extends AbstractModel {
         
         return calendar.addDays(Calendar.getInstance().getTime(), (7 - dayNumber) + (i - 1) * 7 + j).toString();
         
-    }
-    
-    public NotebookCurrentMonthPanelView getNotebookCurrentMonthPanel() {
-    
-        return this.notebookCurrentMonthPanel;
     }
     
     public String getCurrentMonthName() {

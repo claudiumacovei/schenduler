@@ -9,14 +9,10 @@ public abstract class AbstractModel {
     protected PropertyChangeSupport propertyChangeSupport;
     private Logger logger = null;
     
-    public AbstractModel() {
-    
-        propertyChangeSupport = new PropertyChangeSupport(this);
-    }
-    
     public AbstractModel(Logger logger) {
     
         this.logger = logger;
+        propertyChangeSupport = new PropertyChangeSupport(this);
     }
     
     public void addPropertyChangeListener(PropertyChangeListener listener) {

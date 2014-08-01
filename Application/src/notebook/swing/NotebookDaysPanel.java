@@ -24,9 +24,9 @@ import javax.swing.JButton;
 
 import notebook.NotebookController;
 import notebook.NotebookModel;
-import notebook.abstractc.AbstractPanel;
+import notebook.swing.panels.abstractc.AbstractPanelView;
 
-public class NotebookDaysPanel extends AbstractPanel {
+public class NotebookDaysPanel extends AbstractPanelView {
     NotebookModel model = null;
     NotebookController controller = null;
     private JButton[][] days = new JButton[6][7];

@@ -1,5 +1,7 @@
 package notebook.swing.panels.abstractc;
 
-public class AbstractPanelModel {
+import notebook.abstractc.AbstractModel;
+
+public class AbstractPanelModel extends AbstractModel {
     
 }

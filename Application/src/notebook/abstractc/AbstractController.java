@@ -5,19 +5,17 @@ import java.beans.PropertyChangeListener;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import notebook.NotebookView;
-
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public abstract class AbstractController implements PropertyChangeListener {
     
     private ArrayList<AbstractView> registeredViews;
     private ArrayList<AbstractModel> registeredModels;
-    private final Logger logger = LoggerFactory.getLogger(NotebookView.class);
+    private Logger logger = null;
     
-    public AbstractController() {
+    public AbstractController(Logger logger) {
     
+        this.logger = logger;
         registeredViews = new ArrayList<AbstractView>();
         registeredModels = new ArrayList<AbstractModel>();
     }

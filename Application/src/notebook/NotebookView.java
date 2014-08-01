@@ -19,6 +19,9 @@ import notebook.swing.NotebookMenuBar;
 import notebook.swing.NotebookWeeksNumberPanel;
 import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class NotebookView extends AbstractView {
     private final NotebookController controller;
     private final NotebookModel model;
@@ -28,8 +31,9 @@ public class NotebookView extends AbstractView {
     private NotebookDaysPanel daysPannel = null;
     private NotebookMenuBar menuBar = null;
     
-    public NotebookView(NotebookController controller, NotebookModel model) {
+    public NotebookView(NotebookController controller, NotebookModel model, Logger logger) {
     
+        super(logger);
         this.controller = controller;
         this.model = model;
         initComponents();
@@ -138,7 +142,7 @@ public class NotebookView extends AbstractView {
             @Override
             public void run() {
             
-                NotebookController controller = new NotebookController();
+                NotebookController controller = new NotebookController(LoggerFactory.getLogger(getClass()));
                 //                new NotebookView(controller, new NotebookModel(controller)).setVisible(true);
             }
         });

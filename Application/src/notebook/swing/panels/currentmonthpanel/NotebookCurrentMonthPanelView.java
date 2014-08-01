@@ -13,9 +13,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import notebook.NotebookModel;
-import notebook.abstractc.AbstractPanel;
+import notebook.swing.panels.abstractc.AbstractPanelView;
 
-public class NotebookCurrentMonthPanelView extends AbstractPanel {
+public class NotebookCurrentMonthPanelView extends AbstractPanelView {
     NotebookModel model = null;
     JLabel currentMonthName = new JLabel();
     JButton previousMonthButton = new JButton("<");

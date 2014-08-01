@@ -20,9 +20,9 @@ import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JLabel;
 
 import notebook.NotebookModel;
-import notebook.abstractc.AbstractPanel;
+import notebook.swing.panels.abstractc.AbstractPanelView;
 
-public class NotebookWeeksNumberPanel extends AbstractPanel {
+public class NotebookWeeksNumberPanel extends AbstractPanelView {
     private NotebookModel model = null;
     private JLabel[] weekNumber = new JLabel[6];
     

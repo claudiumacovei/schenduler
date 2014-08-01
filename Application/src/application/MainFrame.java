@@ -13,11 +13,15 @@ import javax.swing.JFrame;
 
 import notebook.NotebookController;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class MainFrame extends JFrame {
     
     private final JButton AdressBookButton = new JButton();
     private final JButton NotebookButton = new JButton();
     private final MainMenuBar menuBar = new MainMenuBar();
+    Logger logger = LoggerFactory.getLogger(getClass());
     
     public MainFrame() {
     
@@ -40,7 +44,7 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
             
-                new NotebookController();
+                new NotebookController(logger);
                 
             }
         });

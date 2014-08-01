@@ -20,9 +20,9 @@ import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JLabel;
 
 import notebook.NotebookModel;
-import notebook.abstractc.AbstractPanel;
+import notebook.swing.panels.abstractc.AbstractPanelView;
 
-public class NotebookDaysNamePanel extends AbstractPanel {
+public class NotebookDaysNamePanel extends AbstractPanelView {
     NotebookModel model = null;
     private JLabel[] daysName = new JLabel[7];
     

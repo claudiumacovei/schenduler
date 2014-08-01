@@ -4,15 +4,19 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public abstract class AbstractModel {
     protected PropertyChangeSupport propertyChangeSupport;
-    private final Logger logger = LoggerFactory.getLogger(AbstractModel.class);
+    private Logger logger = null;
     
     public AbstractModel() {
     
         propertyChangeSupport = new PropertyChangeSupport(this);
+    }
+    
+    public AbstractModel(Logger logger) {
+    
+        this.logger = logger;
     }
     
     public void addPropertyChangeListener(PropertyChangeListener listener) {

@@ -13,20 +13,20 @@ import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 
 import notebook.abstractc.AbstractView;
-import notebook.swing.NotebookCurrentMonthPanel;
 import notebook.swing.NotebookDaysNamePanel;
 import notebook.swing.NotebookDaysPanel;
 import notebook.swing.NotebookMenuBar;
 import notebook.swing.NotebookWeeksNumberPanel;
+import notebook.swing.currentmonthpanel.NotebookCurrentMonthPanelView;
 
 public class NotebookView extends AbstractView {
     private final NotebookController controller;
     private final NotebookModel model;
-    private NotebookCurrentMonthPanel currentMonthPanel = null;
+    private NotebookCurrentMonthPanelView currentMonthPanel = null;
     private NotebookDaysNamePanel dayNamePannel = null;
     private NotebookWeeksNumberPanel weekNumberPannel = null;
     private NotebookDaysPanel daysPannel = null;
-    private NotebookMenuBar menuBar = new NotebookMenuBar();
+    private NotebookMenuBar menuBar = null;
     
     public NotebookView(NotebookController controller, NotebookModel model) {
     
@@ -34,6 +34,7 @@ public class NotebookView extends AbstractView {
         this.model = model;
         initComponents();
         setFrame();
+        
     }
     
     private void setFrame() {
@@ -45,6 +46,7 @@ public class NotebookView extends AbstractView {
     
     private void initComponents() {
     
+        menuBar = new NotebookMenuBar(controller);
         setJMenuBar(menuBar);
         
         dayNamePannel = model.getNotebookDaysNamePanel();
@@ -102,6 +104,7 @@ public class NotebookView extends AbstractView {
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
+        setTitle(model.getName());
     }
     
     public static void main(String args[]) {

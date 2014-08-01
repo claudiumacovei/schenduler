@@ -1,4 +1,4 @@
-package notebook.swing;
+package notebook.swing.currentmonthpanel;
 
 import static javax.swing.SwingConstants.CENTER;
 import static notebook.utils.NotebookConstant.dayNamePannelMinimumHeight;
@@ -15,13 +15,13 @@ import javax.swing.JLabel;
 import notebook.NotebookModel;
 import notebook.abstractc.AbstractPanel;
 
-public class NotebookCurrentMonthPanel extends AbstractPanel {
+public class NotebookCurrentMonthPanelView extends AbstractPanel {
     NotebookModel model = null;
     JLabel currentMonthName = new JLabel();
     JButton previousMonthButton = new JButton("<");
     JButton nextMonthButton = new JButton(">");
     
-    public NotebookCurrentMonthPanel(NotebookModel model) {
+    public NotebookCurrentMonthPanelView(NotebookModel model) {
     
         this.model = model;
         initComponents();

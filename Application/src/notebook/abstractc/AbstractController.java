@@ -50,6 +50,7 @@ public abstract class AbstractController implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
     
+        setModelProperty(evt.getPropertyName(), evt.getNewValue());
         for (AbstractView view : registeredViews) {
             view.modelPropertyChange(evt);
         }
@@ -67,7 +68,7 @@ public abstract class AbstractController implements PropertyChangeListener {
      * @param newValue = An object that represents the new value
      * of the property.
      */
-    protected void setModelProperty(String propertyName, Object newValue) {
+    public void setModelProperty(String propertyName, Object newValue) {
     
         for (AbstractModel model : registeredModels) {
             try {

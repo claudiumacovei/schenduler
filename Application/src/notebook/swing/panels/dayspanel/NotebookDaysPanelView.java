@@ -1,4 +1,4 @@
-package notebook.swing.dayspanel;
+package notebook.swing.panels.dayspanel;
 
 import static javax.swing.GroupLayout.Alignment.BASELINE;
 import static javax.swing.GroupLayout.Alignment.LEADING;

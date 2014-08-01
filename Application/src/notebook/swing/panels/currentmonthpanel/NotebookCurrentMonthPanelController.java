@@ -1,4 +1,4 @@
-package notebook.swing.currentmonthpanel;
+package notebook.swing.panels.currentmonthpanel;
 
 import notebook.abstractc.AbstractController;
 

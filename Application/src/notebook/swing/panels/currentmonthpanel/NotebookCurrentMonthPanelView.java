@@ -1,4 +1,4 @@
-package notebook.swing.currentmonthpanel;
+package notebook.swing.panels.currentmonthpanel;
 
 import static javax.swing.SwingConstants.CENTER;
 import static notebook.utils.NotebookConstant.dayNamePannelMinimumHeight;

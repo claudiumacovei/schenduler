@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 public class NotebookCurrentMonthPanelModel extends AbstractModel {
     
     private NotebookCurrentMonthPanelController controller = null;
+    
     Logger logger = null;
     
     public NotebookCurrentMonthPanelModel(NotebookCurrentMonthPanelController controller, Logger logger) {
@@ -17,13 +18,11 @@ public class NotebookCurrentMonthPanelModel extends AbstractModel {
     
     public String getCurrentMonthName() {
     
-        // TODO Auto-generated method stub
-        return null;
+        return getCalendar().getCurrentMonthName();
     }
     
     public String getCurrentYear() {
     
-        // TODO Auto-generated method stub
-        return null;
+        return getCalendar().getCurrentYear();
     }
 }

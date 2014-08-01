@@ -14,8 +14,7 @@ public class NotebookWeeksNumberPanelModel extends AbstractPanelModel {
     
     public String getWeekNumber(int i) {
     
-        // TODO Auto-generated method stub
-        return null;
+        return (getCalendar().getCurrentWeekNumberInYear() + i) + "";
     }
     
 }

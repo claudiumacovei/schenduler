@@ -3,9 +3,13 @@ package notebook.abstractc;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+import notebook.utils.NotebookCalendar;
+
 import org.slf4j.Logger;
 
 public abstract class AbstractModel {
+    private boolean isMondayFirstDayOfWeek = true;
+    private NotebookCalendar calendar = new NotebookCalendar();
     protected PropertyChangeSupport propertyChangeSupport;
     private Logger logger = null;
     
@@ -13,6 +17,26 @@ public abstract class AbstractModel {
     
         this.logger = logger;
         propertyChangeSupport = new PropertyChangeSupport(this);
+    }
+    
+    public NotebookCalendar getCalendar() {
+    
+        return calendar;
+    }
+    
+    public void setCalendar(NotebookCalendar calendar) {
+    
+        this.calendar = calendar;
+    }
+    
+    public boolean isMondayFirstDayOfWeek() {
+    
+        return isMondayFirstDayOfWeek;
+    }
+    
+    public void setMondayFirstDayOfWeek(boolean isMondayFirstDayOfWeek) {
+    
+        this.isMondayFirstDayOfWeek = isMondayFirstDayOfWeek;
     }
     
     public void addPropertyChangeListener(PropertyChangeListener listener) {

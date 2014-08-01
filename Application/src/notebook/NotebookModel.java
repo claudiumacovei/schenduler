@@ -14,9 +14,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import notebook.abstractc.AbstractModel;
-import notebook.swing.NotebookDaysNamePanel;
 import notebook.swing.NotebookDaysPanel;
 import notebook.swing.NotebookWeeksNumberPanel;
+import notebook.swing.daynamepanel.NotebookDayNamePanelView;
 import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
 import notebook.utils.NotebookCalendar;
 import notebook.utils.NotebookDay;
@@ -25,7 +25,7 @@ public class NotebookModel extends AbstractModel {
     private NotebookController controller = null;
     private String name = "MainApp";
     private boolean isMondayFirstDayOfWeek = true;
-    private NotebookDaysNamePanel notebookDaysNamePanel = null;
+    private NotebookDayNamePanelView notebookDaysNamePanel = null;
     private NotebookDaysPanel notebookDaysPannel = null;
     private NotebookWeeksNumberPanel notebookWeeksNumberPannel = null;
     private NotebookCurrentMonthPanelView notebookCurrentMonthPanel = null;
@@ -34,7 +34,7 @@ public class NotebookModel extends AbstractModel {
     public NotebookModel(NotebookController controller) {
     
         this.controller = controller;
-        notebookDaysNamePanel = new NotebookDaysNamePanel(this);
+        notebookDaysNamePanel = new NotebookDayNamePanelView(this);
         notebookDaysPannel = new NotebookDaysPanel(this, controller);
         notebookWeeksNumberPannel = new NotebookWeeksNumberPanel(this);
         notebookCurrentMonthPanel = new NotebookCurrentMonthPanelView(this);
@@ -65,12 +65,12 @@ public class NotebookModel extends AbstractModel {
         this.notebookWeeksNumberPannel = notebookWeeksNumberPannel;
     }
     
-    public NotebookDaysNamePanel getNotebookDaysNamePanel() {
+    public NotebookDayNamePanelView getNotebookDaysNamePanel() {
     
         return notebookDaysNamePanel;
     }
     
-    public void setNotebookDaysNamePanel(NotebookDaysNamePanel notebookDaysNamePanel) {
+    public void setNotebookDaysNamePanel(NotebookDayNamePanelView notebookDaysNamePanel) {
     
         this.notebookDaysNamePanel = notebookDaysNamePanel;
     }

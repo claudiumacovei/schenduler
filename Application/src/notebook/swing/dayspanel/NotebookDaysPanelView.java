@@ -1,4 +1,4 @@
-package notebook.swing;
+package notebook.swing.dayspanel;
 
 import static javax.swing.GroupLayout.Alignment.BASELINE;
 import static javax.swing.GroupLayout.Alignment.LEADING;
@@ -26,12 +26,12 @@ import notebook.NotebookController;
 import notebook.NotebookModel;
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
-public class NotebookDaysPanel extends AbstractPanelView {
+public class NotebookDaysPanelView extends AbstractPanelView {
     NotebookModel model = null;
     NotebookController controller = null;
     private JButton[][] days = new JButton[6][7];
     
-    public NotebookDaysPanel(NotebookModel model, NotebookController controller) {
+    public NotebookDaysPanelView(NotebookModel model, NotebookController controller) {
     
         this.controller = controller;
         this.model = model;

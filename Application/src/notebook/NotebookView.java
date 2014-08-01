@@ -14,10 +14,10 @@ import javax.swing.GroupLayout.SequentialGroup;
 
 import notebook.abstractc.AbstractView;
 import notebook.swing.NotebookMenuBar;
-import notebook.swing.daynamepanel.NotebookDayNamePanelView;
-import notebook.swing.dayspanel.NotebookDaysPanelView;
 import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
-import notebook.swing.weeksnumberpanel.NotebookWeeksNumberPanelView;
+import notebook.swing.panels.daynamepanel.NotebookDayNamePanelView;
+import notebook.swing.panels.dayspanel.NotebookDaysPanelView;
+import notebook.swing.panels.weeksnumberpanel.NotebookWeeksNumberPanelView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

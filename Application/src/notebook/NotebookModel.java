@@ -14,10 +14,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import notebook.abstractc.AbstractModel;
-import notebook.swing.daynamepanel.NotebookDayNamePanelView;
-import notebook.swing.dayspanel.NotebookDaysPanelView;
 import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
-import notebook.swing.weeksnumberpanel.NotebookWeeksNumberPanelView;
+import notebook.swing.panels.daynamepanel.NotebookDayNamePanelView;
+import notebook.swing.panels.dayspanel.NotebookDaysPanelView;
+import notebook.swing.panels.weeksnumberpanel.NotebookWeeksNumberPanelView;
 import notebook.utils.NotebookCalendar;
 import notebook.utils.NotebookDay;
 

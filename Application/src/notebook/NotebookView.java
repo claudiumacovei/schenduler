@@ -53,16 +53,22 @@ public class NotebookView extends AbstractView {
         menuBar = new NotebookMenuBar(controller);
         setJMenuBar(menuBar);
         
-        //        weekNumberPannel = model.getNotebookWeeksNumberPannel();
-        //        daysPannel = model.getNotebookDaysPannel();
         daysNamePanelController = new NotebookDayNamePanelController(logger);
         currentMonthPanelController = new NotebookCurrentMonthPanelController(logger);
         weeksNumberPanelController = new NotebookWeeksNumberPanelController(logger);
         daysPanelController = new NotebookDaysPanelController(logger);
         
+        initVariablesFromModel();
+        
         initPannels();
         
         pack();
+        
+    }
+    
+    private void initVariablesFromModel() {
+    
+        setTitle(model.getTitle());
         
     }
     
@@ -110,7 +116,7 @@ public class NotebookView extends AbstractView {
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
-        setTitle(model.getName());
+        setTitle(model.getTitle());
     }
     
     public static void main(String args[]) {

@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 
 public class NotebookModel extends AbstractModel {
     private NotebookController controller = null;
-    private String name = "MainApp";
+    private String title = "MainApp";
     private NotebookCalendar calendar = new NotebookCalendar();
     
     public NotebookModel(NotebookController controller, Logger logger) {
@@ -24,14 +24,14 @@ public class NotebookModel extends AbstractModel {
         
     }
     
-    public void setName(String name) {
+    public String getTitle() {
     
-        this.name = name;
+        return title;
     }
     
-    public String getName() {
+    public void setTitle(String title) {
     
-        return name;
+        this.title = title;
     }
     
 }

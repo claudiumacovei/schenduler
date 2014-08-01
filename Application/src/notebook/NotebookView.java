@@ -17,7 +17,7 @@ import notebook.swing.NotebookDaysNamePanel;
 import notebook.swing.NotebookDaysPanel;
 import notebook.swing.NotebookMenuBar;
 import notebook.swing.NotebookWeeksNumberPanel;
-import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
+import notebook.swing.currentmonthpanel.NotebookCurrentMonthPanelView;
 
 public class NotebookView extends AbstractView {
     private final NotebookController controller;

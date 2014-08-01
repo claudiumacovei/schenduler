@@ -17,7 +17,7 @@ import notebook.abstractc.AbstractModel;
 import notebook.swing.NotebookDaysNamePanel;
 import notebook.swing.NotebookDaysPanel;
 import notebook.swing.NotebookWeeksNumberPanel;
-import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
+import notebook.swing.currentmonthpanel.NotebookCurrentMonthPanelView;
 import notebook.utils.NotebookCalendar;
 import notebook.utils.NotebookDay;
 

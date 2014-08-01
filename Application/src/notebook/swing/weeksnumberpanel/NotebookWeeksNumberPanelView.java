@@ -1,4 +1,4 @@
-package notebook.swing;
+package notebook.swing.weeksnumberpanel;
 
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;
@@ -22,11 +22,11 @@ import javax.swing.JLabel;
 import notebook.NotebookModel;
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
-public class NotebookWeeksNumberPanel extends AbstractPanelView {
+public class NotebookWeeksNumberPanelView extends AbstractPanelView {
     private NotebookModel model = null;
     private JLabel[] weekNumber = new JLabel[6];
     
-    public NotebookWeeksNumberPanel(NotebookModel model) {
+    public NotebookWeeksNumberPanelView(NotebookModel model) {
     
         this.model = model;
         initComponents();

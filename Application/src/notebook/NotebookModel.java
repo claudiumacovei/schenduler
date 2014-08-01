@@ -8,14 +8,12 @@ import notebook.utils.NotebookCalendar;
 import org.slf4j.Logger;
 
 public class NotebookModel extends AbstractModel {
-    private NotebookController controller = null;
     private String title = "MainApp";
     private NotebookCalendar calendar = new NotebookCalendar();
     
-    public NotebookModel(NotebookController controller, Logger logger) {
+    public NotebookModel(Logger logger) {
     
         super(logger);
-        this.controller = controller;
         
         if (isMondayFirstDayOfWeek())
             calendar.setFirstDayOfWeek(Calendar.MONDAY);

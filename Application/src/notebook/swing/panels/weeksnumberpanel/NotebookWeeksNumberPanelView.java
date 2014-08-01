@@ -1,4 +1,4 @@
-package notebook.swing.weeksnumberpanel;
+package notebook.swing.panels.weeksnumberpanel;
 
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;

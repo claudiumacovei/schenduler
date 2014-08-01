@@ -1,4 +1,4 @@
-package notebook.swing.weeksnumberpanel;
+package notebook.swing.panels.weeksnumberpanel;
 
 import notebook.swing.panels.abstractc.AbstractPanelController;
 

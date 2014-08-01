@@ -14,10 +14,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import notebook.abstractc.AbstractModel;
-import notebook.swing.NotebookWeeksNumberPanel;
 import notebook.swing.daynamepanel.NotebookDayNamePanelView;
 import notebook.swing.dayspanel.NotebookDaysPanelView;
 import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
+import notebook.swing.weeksnumberpanel.NotebookWeeksNumberPanelView;
 import notebook.utils.NotebookCalendar;
 import notebook.utils.NotebookDay;
 
@@ -27,7 +27,7 @@ public class NotebookModel extends AbstractModel {
     private boolean isMondayFirstDayOfWeek = true;
     private NotebookDayNamePanelView notebookDaysNamePanel = null;
     private NotebookDaysPanelView notebookDaysPannel = null;
-    private NotebookWeeksNumberPanel notebookWeeksNumberPannel = null;
+    private NotebookWeeksNumberPanelView notebookWeeksNumberPannel = null;
     private NotebookCurrentMonthPanelView notebookCurrentMonthPanel = null;
     private NotebookCalendar calendar = new NotebookCalendar();
     
@@ -36,7 +36,7 @@ public class NotebookModel extends AbstractModel {
         this.controller = controller;
         notebookDaysNamePanel = new NotebookDayNamePanelView(this);
         notebookDaysPannel = new NotebookDaysPanelView(this, controller);
-        notebookWeeksNumberPannel = new NotebookWeeksNumberPanel(this);
+        notebookWeeksNumberPannel = new NotebookWeeksNumberPanelView(this);
         notebookCurrentMonthPanel = new NotebookCurrentMonthPanelView(this);
         if (isMondayFirstDayOfWeek)
             calendar.setFirstDayOfWeek(Calendar.MONDAY);
@@ -50,7 +50,7 @@ public class NotebookModel extends AbstractModel {
         return notebookDaysPannel;
     }
     
-    public NotebookWeeksNumberPanel getNotebookWeeksNumberPannel() {
+    public NotebookWeeksNumberPanelView getNotebookWeeksNumberPannel() {
     
         return notebookWeeksNumberPannel;
     }
@@ -60,7 +60,7 @@ public class NotebookModel extends AbstractModel {
         this.notebookDaysPannel = notebookDaysPannel;
     }
     
-    public void setNotebookWeeksNumberPannel(NotebookWeeksNumberPanel notebookWeeksNumberPannel) {
+    public void setNotebookWeeksNumberPannel(NotebookWeeksNumberPanelView notebookWeeksNumberPannel) {
     
         this.notebookWeeksNumberPannel = notebookWeeksNumberPannel;
     }

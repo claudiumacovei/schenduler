@@ -14,10 +14,10 @@ import javax.swing.GroupLayout.SequentialGroup;
 
 import notebook.abstractc.AbstractView;
 import notebook.swing.NotebookMenuBar;
-import notebook.swing.NotebookWeeksNumberPanel;
 import notebook.swing.daynamepanel.NotebookDayNamePanelView;
 import notebook.swing.dayspanel.NotebookDaysPanelView;
 import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelView;
+import notebook.swing.weeksnumberpanel.NotebookWeeksNumberPanelView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +27,7 @@ public class NotebookView extends AbstractView {
     private final NotebookModel model;
     private NotebookCurrentMonthPanelView currentMonthPanel = null;
     private NotebookDayNamePanelView dayNamePannel = null;
-    private NotebookWeeksNumberPanel weekNumberPannel = null;
+    private NotebookWeeksNumberPanelView weekNumberPannel = null;
     private NotebookDaysPanelView daysPannel = null;
     private NotebookMenuBar menuBar = null;
     

@@ -1,4 +1,4 @@
-package notebook.swing;
+package notebook.swing.daynamepanel;
 
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;
@@ -22,11 +22,11 @@ import javax.swing.JLabel;
 import notebook.NotebookModel;
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
-public class NotebookDaysNamePanel extends AbstractPanelView {
+public class NotebookDayNamePanelView extends AbstractPanelView {
     NotebookModel model = null;
     private JLabel[] daysName = new JLabel[7];
     
-    public NotebookDaysNamePanel(NotebookModel model) {
+    public NotebookDayNamePanelView(NotebookModel model) {
     
         this.model = model;
         initComponents();

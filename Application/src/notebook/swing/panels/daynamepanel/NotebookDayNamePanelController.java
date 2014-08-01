@@ -12,7 +12,7 @@ public class NotebookDayNamePanelController extends AbstractPanelController {
     
         super(logger);
         model = new NotebookDayNamePanelModel(logger);
-        view = new NotebookDayNamePanelView(model);
+        view = new NotebookDayNamePanelView(this, model, logger);
         addModel(model);
         addView(view);
     }

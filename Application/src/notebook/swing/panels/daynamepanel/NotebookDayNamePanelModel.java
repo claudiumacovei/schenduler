@@ -21,7 +21,6 @@ public class NotebookDayNamePanelModel extends AbstractPanelModel {
     public NotebookDayNamePanelModel(Logger logger) {
     
         super(logger);
-        // TODO Auto-generated constructor stub
     }
     
     private static Map<Integer, NotebookDay> weekDaysMap = new HashMap<Integer, NotebookDay>();

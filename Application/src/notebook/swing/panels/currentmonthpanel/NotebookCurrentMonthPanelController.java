@@ -11,8 +11,8 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
     public NotebookCurrentMonthPanelController(Logger logger) {
     
         super(logger);
-        model = new NotebookCurrentMonthPanelModel(this, logger);
-        view = new NotebookCurrentMonthPanelView(model, this, logger);
+        model = new NotebookCurrentMonthPanelModel(logger);
+        view = new NotebookCurrentMonthPanelView(this, model, logger);
         addModel(model);
         addView(view);
     }

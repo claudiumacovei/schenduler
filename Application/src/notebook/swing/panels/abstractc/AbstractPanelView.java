@@ -5,11 +5,16 @@ import java.beans.PropertyChangeEvent;
 import javax.swing.JPanel;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public abstract class AbstractPanelView extends JPanel {
     
-    private final Logger logger = LoggerFactory.getLogger(AbstractPanelView.class);
+    private Logger logger = null;
+    
+    public AbstractPanelView(Logger logger) {
+    
+        super();
+        this.logger = logger;
+    }
     
     public abstract void modelPropertyChange(final PropertyChangeEvent evt);
     

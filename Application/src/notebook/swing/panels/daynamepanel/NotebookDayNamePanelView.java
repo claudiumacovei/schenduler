@@ -22,13 +22,18 @@ import javax.swing.JLabel;
 
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
+import org.slf4j.Logger;
+
 public class NotebookDayNamePanelView extends AbstractPanelView {
-    NotebookDayNamePanelModel model = null;
+    private NotebookDayNamePanelController controller = null;
+    private NotebookDayNamePanelModel model = null;
     private JLabel[] daysName = new JLabel[7];
     
-    public NotebookDayNamePanelView(NotebookDayNamePanelModel model) {
+    public NotebookDayNamePanelView(NotebookDayNamePanelController controller, NotebookDayNamePanelModel model, Logger logger) {
     
+        super(logger);
         this.model = model;
+        this.controller = controller;
         initComponents();
         setPanel();
     }

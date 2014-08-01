@@ -13,7 +13,7 @@ public class NotebookWeeksNumberPanelController extends AbstractPanelController 
     
         super(logger);
         model = new NotebookWeeksNumberPanelModel(logger);
-        view = new NotebookWeeksNumberPanelView(model);
+        view = new NotebookWeeksNumberPanelView(this, model, logger);
         addModel(model);
         addView(view);
     }

@@ -25,13 +25,16 @@ import javax.swing.JButton;
 
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
+import org.slf4j.Logger;
+
 public class NotebookDaysPanelView extends AbstractPanelView {
     NotebookDaysPanelModel model = null;
     NotebookDaysPanelController controller = null;
     private JButton[][] days = new JButton[6][7];
     
-    public NotebookDaysPanelView(NotebookDaysPanelModel model, NotebookDaysPanelController controller) {
+    public NotebookDaysPanelView(NotebookDaysPanelController controller, NotebookDaysPanelModel model, Logger logger) {
     
+        super(logger);
         this.controller = controller;
         this.model = model;
         initComponents();

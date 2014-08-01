@@ -22,13 +22,18 @@ import javax.swing.JLabel;
 
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
+import org.slf4j.Logger;
+
 public class NotebookWeeksNumberPanelView extends AbstractPanelView {
+    private NotebookWeeksNumberPanelController controller = null;
     private NotebookWeeksNumberPanelModel model = null;
     private JLabel[] weekNumber = new JLabel[6];
     
-    public NotebookWeeksNumberPanelView(NotebookWeeksNumberPanelModel model) {
+    public NotebookWeeksNumberPanelView(NotebookWeeksNumberPanelController controller, NotebookWeeksNumberPanelModel model, Logger logger) {
     
+        super(logger);
         this.model = model;
+        this.controller = controller;
         initComponents();
         setPanel();
     }

@@ -20,18 +20,15 @@ import org.slf4j.Logger;
 public class NotebookCurrentMonthPanelView extends AbstractPanelView {
     NotebookCurrentMonthPanelModel model = null;
     NotebookCurrentMonthPanelController controller = null;
-    Logger logger = null;
     JLabel currentMonthName = new JLabel();
     JButton previousMonthButton = new JButton("<");
     JButton nextMonthButton = new JButton(">");
     
-    public NotebookCurrentMonthPanelView(NotebookCurrentMonthPanelModel model, NotebookCurrentMonthPanelController controller, Logger logger) {
+    public NotebookCurrentMonthPanelView(NotebookCurrentMonthPanelController controller, NotebookCurrentMonthPanelModel model, Logger logger) {
     
-        super();
+        super(logger);
         this.model = model;
         this.controller = controller;
-        this.logger = logger;
-        
         initComponents();
         setPanel();
     }

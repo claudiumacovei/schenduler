@@ -6,14 +6,11 @@ import org.slf4j.Logger;
 
 public class NotebookCurrentMonthPanelModel extends AbstractModel {
     
-    private NotebookCurrentMonthPanelController controller = null;
-    
     Logger logger = null;
     
-    public NotebookCurrentMonthPanelModel(NotebookCurrentMonthPanelController controller, Logger logger) {
+    public NotebookCurrentMonthPanelModel(Logger logger) {
     
         super(logger);
-        this.controller = controller;
     }
     
     public String getCurrentMonthName() {

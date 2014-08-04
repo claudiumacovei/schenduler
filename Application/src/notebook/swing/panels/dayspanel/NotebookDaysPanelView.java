@@ -116,10 +116,9 @@ public class NotebookDaysPanelView extends AbstractPanelView {
     
         for (int i = 0; i < days.length; i++) {
             for (int j = 0; j < days[i].length; j++) {
-                days[i][j] = new JButton(model.getDayNumber(i, j));
+                days[i][j].setText(model.getDayNumber(i, j));
             }
         }
         
     }
-    
 }

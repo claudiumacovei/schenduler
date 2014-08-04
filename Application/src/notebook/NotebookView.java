@@ -26,7 +26,7 @@ public class NotebookView extends AbstractView {
         super(logger);
         this.controller = controller;
         this.model = model;
-        initComponents(logger);
+        initComponents();
         setFrame();
         
     }
@@ -38,9 +38,9 @@ public class NotebookView extends AbstractView {
         
     }
     
-    private void initComponents(Logger logger) {
+    private void initComponents() {
     
-        menuBar = new NotebookMenuBar(controller);
+        menuBar = new NotebookMenuBar(controller, getLogger());
         setJMenuBar(menuBar);
         
         initVariablesFromModel();

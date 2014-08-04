@@ -31,4 +31,5 @@ public class NotebookCurrentMonthPanelModel extends AbstractModel {
         NotebookCalendar newCalendar = new NotebookCalendar(time);
         setCalendar(newCalendar);
     }
+    
 }

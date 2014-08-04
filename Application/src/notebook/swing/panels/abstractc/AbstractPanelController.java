@@ -46,7 +46,9 @@ public class AbstractPanelController implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
     
-        setModelProperty(evt.getPropertyName(), evt.getNewValue());
+        if (evt.getPropertyName() != null && evt.getNewValue() != null) {
+            setModelProperty(evt.getPropertyName(), evt.getNewValue());
+        }
         registeredView.modelPropertyChange(evt);
     }
     
@@ -71,7 +73,7 @@ public class AbstractPanelController implements PropertyChangeListener {
             method.invoke(registeredModel, newValue);
             
         } catch (Exception ex) {
-            System.out.println("Exception catched: " + ex.getMessage());
+            getLogger().error(ex.getMessage(), ex);
         }
     }
     

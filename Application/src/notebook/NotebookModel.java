@@ -22,6 +22,11 @@ public class NotebookModel extends AbstractModel {
         
     }
     
+    public void setIsMondayFirstDayOfWeek(Boolean isMondayFirstDayOfWeek) {
+    
+        super.setIsMondayFirstDayOfWeek(isMondayFirstDayOfWeek);
+    }
+    
     public String getTitle() {
     
         return title;

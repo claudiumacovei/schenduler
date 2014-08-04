@@ -80,8 +80,9 @@ public class NotebookDayNamePanelView extends AbstractPanelView {
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
-        // TODO Auto-generated method stub
-        
+        for (int i = 0; i < daysName.length; i++) {
+            daysName[i].setText(model.getDayName(i));
+        }
     }
     
 }

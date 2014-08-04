@@ -23,17 +23,47 @@ public class NotebookDaysPanelModel extends AbstractPanelModel {
     public NotebookDaysPanelModel(Logger logger) {
     
         super(logger);
-        // TODO Auto-generated constructor stub
+        if (isMondayFirstDayOfWeek() == true) {
+            weekDaysMap.put(0, MONDAY);
+            weekDaysMap.put(1, TUESDAY);
+            weekDaysMap.put(2, WEDNESDAY);
+            weekDaysMap.put(3, THURSDAY);
+            weekDaysMap.put(4, FRIDAY);
+            weekDaysMap.put(5, SATURDAY);
+            weekDaysMap.put(6, SUNDAY);
+        } else {
+            weekDaysMap.put(0, SUNDAY);
+            weekDaysMap.put(1, MONDAY);
+            weekDaysMap.put(2, TUESDAY);
+            weekDaysMap.put(3, WEDNESDAY);
+            weekDaysMap.put(4, THURSDAY);
+            weekDaysMap.put(5, FRIDAY);
+            weekDaysMap.put(6, SATURDAY);
+        }
     }
     private static Map<Integer, NotebookDay> weekDaysMap = new HashMap<Integer, NotebookDay>();
-    static {
-        weekDaysMap.put(0, MONDAY);
-        weekDaysMap.put(1, TUESDAY);
-        weekDaysMap.put(2, WEDNESDAY);
-        weekDaysMap.put(3, THURSDAY);
-        weekDaysMap.put(4, FRIDAY);
-        weekDaysMap.put(5, SATURDAY);
-        weekDaysMap.put(6, SUNDAY);
+    
+    @Override
+    public void setIsMondayFirstDayOfWeek(Boolean isMondayFirstDayOfWeek) {
+    
+        if (isMondayFirstDayOfWeek == true) {
+            weekDaysMap.put(0, MONDAY);
+            weekDaysMap.put(1, TUESDAY);
+            weekDaysMap.put(2, WEDNESDAY);
+            weekDaysMap.put(3, THURSDAY);
+            weekDaysMap.put(4, FRIDAY);
+            weekDaysMap.put(5, SATURDAY);
+            weekDaysMap.put(6, SUNDAY);
+        } else {
+            weekDaysMap.put(0, SUNDAY);
+            weekDaysMap.put(1, MONDAY);
+            weekDaysMap.put(2, TUESDAY);
+            weekDaysMap.put(3, WEDNESDAY);
+            weekDaysMap.put(4, THURSDAY);
+            weekDaysMap.put(5, FRIDAY);
+            weekDaysMap.put(6, SATURDAY);
+        }
+        super.setIsMondayFirstDayOfWeek(isMondayFirstDayOfWeek);
     }
     
     public Integer getDayNumber(int value) {
@@ -50,7 +80,6 @@ public class NotebookDaysPanelModel extends AbstractPanelModel {
     
         Integer dayNumber = getDayNumber(getCalendar().getDayOfWeek());
         
-        return String.valueOf(getCalendar().addUnitsToDate(Calendar.getInstance().getTime(), Calendar.DAY_OF_YEAR, (7 - dayNumber) + (i - 1) * 7 + j).get(Calendar.DAY_OF_MONTH));
-        
+        return String.valueOf(getCalendar().addUnitsToDate(getCalendar().getTime(), Calendar.DAY_OF_YEAR, (7 - dayNumber) + (i - 1) * 7 + j).get(Calendar.DAY_OF_MONTH));
     }
 }

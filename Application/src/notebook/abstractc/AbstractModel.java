@@ -34,7 +34,7 @@ public abstract class AbstractModel {
         return isMondayFirstDayOfWeek;
     }
     
-    public void setMondayFirstDayOfWeek(boolean isMondayFirstDayOfWeek) {
+    public void setIsMondayFirstDayOfWeek(Boolean isMondayFirstDayOfWeek) {
     
         this.isMondayFirstDayOfWeek = isMondayFirstDayOfWeek;
     }

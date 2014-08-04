@@ -1,16 +1,17 @@
 package notebook.swing;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.beans.PropertyChangeEvent;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JRadioButton;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import notebook.NotebookController;
+
+import org.slf4j.Logger;
 
 public class NotebookMenuBar extends JMenuBar {
     NotebookController controller = null;
@@ -19,9 +20,11 @@ public class NotebookMenuBar extends JMenuBar {
     JMenu firstDayOfWeekMenu = new JMenu("First Day Of Week");
     JRadioButton mondayFirstDayOfWeekRadioButton = new JRadioButton("Monday");
     JRadioButton sundayFirstDayOfWeekRadioButton = new JRadioButton("Sunday");
+    Logger logger = null;
     
-    public NotebookMenuBar(NotebookController controller) {
+    public NotebookMenuBar(NotebookController controller, Logger logger) {
     
+        this.logger = logger;
         this.controller = controller;
         initComponents();
         
@@ -30,18 +33,66 @@ public class NotebookMenuBar extends JMenuBar {
     protected void initComponents() {
     
         mondayFirstDayOfWeekRadioButton.setSelected(true);
-        mondayFirstDayOfWeekRadioButton.addChangeListener(new ChangeListener() {
+        mondayFirstDayOfWeekRadioButton.addMouseListener(new MouseListener() {
             
             @Override
-            public void stateChanged(ChangeEvent e) {
+            public void mouseReleased(MouseEvent arg0) {
+            
+                controller.getCurrentMonthPanelController().getDayNamePanelController().propertyChange(new PropertyChangeEvent(mondayFirstDayOfWeekRadioButton, "IsMondayFirstDayOfWeek", null, true));
+                controller.getCurrentMonthPanelController().getDaysPanelController().propertyChange(new PropertyChangeEvent(mondayFirstDayOfWeekRadioButton, "IsMondayFirstDayOfWeek", null, true));
+                
+            }
+            
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+            
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+            
+            }
+            
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+            
+            }
+            
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
             
             }
         });
-        sundayFirstDayOfWeekRadioButton.addActionListener(new ActionListener() {
+        
+        sundayFirstDayOfWeekRadioButton.addMouseListener(new MouseListener() {
             
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mouseReleased(MouseEvent arg0) {
             
+                controller.getCurrentMonthPanelController().getDayNamePanelController().propertyChange(new PropertyChangeEvent(sundayFirstDayOfWeekRadioButton, "IsMondayFirstDayOfWeek", null, false));
+                controller.getCurrentMonthPanelController().getDaysPanelController().propertyChange(new PropertyChangeEvent(sundayFirstDayOfWeekRadioButton, "IsMondayFirstDayOfWeek", null, false));
+            }
+            
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+            
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+            
+            }
+            
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+            
+            }
+            
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+            
+                // TODO Auto-generated method stub
+                
             }
         });
         

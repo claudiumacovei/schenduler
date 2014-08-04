@@ -34,6 +34,12 @@ public class NotebookDayNamePanelModel extends AbstractPanelModel {
         weekDaysMap.put(6, SUNDAY);
     }
     
+    @Override
+    public void setIsMondayFirstDayOfWeek(Boolean isMondayFirstDayOfWeek) {
+    
+        super.setIsMondayFirstDayOfWeek(isMondayFirstDayOfWeek);
+    }
+    
     public String getDayName(int i) {
     
         if (isMondayFirstDayOfWeek()) {

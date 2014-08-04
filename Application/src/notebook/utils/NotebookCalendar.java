@@ -16,6 +16,11 @@ public class NotebookCalendar {
     
     }
     
+    public NotebookCalendar(Date time) {
+    
+        calendar.setTime(time);
+    }
+    
     public Date getTime() {
     
         return calendar.getTime();
@@ -72,12 +77,12 @@ public class NotebookCalendar {
         logger.info(calendarS.getDisplayName(Calendar.MONTH, Calendar.ALL_STYLES, Locale.ENGLISH) + "\n" + calendarS.get(Calendar.YEAR));
     }
     
-    public Integer addDays(Date time, int i) {
+    public Calendar addUnitsToDate(Date time, int unit, int i) {
     
         Calendar localCalendar = Calendar.getInstance();
         localCalendar.setTime(time);
-        localCalendar.add(Calendar.DAY_OF_YEAR, i);
-        return localCalendar.get(Calendar.DAY_OF_MONTH);
+        localCalendar.add(unit, i);
+        return localCalendar;
     }
     
     public String getCurrentMonthName() {

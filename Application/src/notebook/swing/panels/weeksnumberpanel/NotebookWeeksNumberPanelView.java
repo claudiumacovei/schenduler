@@ -85,7 +85,8 @@ public class NotebookWeeksNumberPanelView extends AbstractPanelView {
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
-        // TODO Auto-generated method stub
+        for (int i = 0; i < weekNumber.length; i++)
+            weekNumber[i].setText(model.getWeekNumber(i));
         
     }
     

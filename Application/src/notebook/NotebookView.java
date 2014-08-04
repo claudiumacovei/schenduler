@@ -1,6 +1,5 @@
 package notebook;
 
-import static notebook.utils.NotebookConstant.defaultLAF;
 import static notebook.utils.NotebookConstant.gapMaximumSize;
 import static notebook.utils.NotebookConstant.gapMinimumSize;
 import static notebook.utils.NotebookConstant.gapPreferedSize;
@@ -14,21 +13,12 @@ import javax.swing.GroupLayout.SequentialGroup;
 
 import notebook.abstractc.AbstractView;
 import notebook.swing.NotebookMenuBar;
-import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelController;
-import notebook.swing.panels.daynamepanel.NotebookDayNamePanelController;
-import notebook.swing.panels.dayspanel.NotebookDaysPanelController;
-import notebook.swing.panels.weeksnumberpanel.NotebookWeeksNumberPanelController;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class NotebookView extends AbstractView {
     private final NotebookController controller;
     private final NotebookModel model;
-    private NotebookDayNamePanelController daysNamePanelController = null;
-    private NotebookCurrentMonthPanelController currentMonthPanelController = null;
-    private NotebookWeeksNumberPanelController weeksNumberPanelController = null;
-    private NotebookDaysPanelController daysPanelController = null;
     private NotebookMenuBar menuBar = null;
     
     public NotebookView(NotebookController controller, NotebookModel model, Logger logger) {
@@ -53,11 +43,6 @@ public class NotebookView extends AbstractView {
         menuBar = new NotebookMenuBar(controller);
         setJMenuBar(menuBar);
         
-        daysNamePanelController = new NotebookDayNamePanelController(logger);
-        currentMonthPanelController = new NotebookCurrentMonthPanelController(logger);
-        weeksNumberPanelController = new NotebookWeeksNumberPanelController(logger);
-        daysPanelController = new NotebookDaysPanelController(logger);
-        
         initVariablesFromModel();
         
         initPannels();
@@ -81,14 +66,14 @@ public class NotebookView extends AbstractView {
         SequentialGroup horizontalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         ParallelGroup horizontalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
         SequentialGroup horizontalSequentialGroup2 = layout.createSequentialGroup();
-        horizontalSequentialGroup2.addComponent(currentMonthPanelController.getView());
+        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getView());
         horizontalSequentialGroup2.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
-        horizontalSequentialGroup2.addComponent(daysNamePanelController.getView());
+        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getDayNamePanelController().getView());
         horizontalParallelGroup2.addGroup(horizontalSequentialGroup2);
         horizontalSequentialGroup2 = layout.createSequentialGroup();
-        horizontalSequentialGroup2.addComponent(weeksNumberPanelController.getView());
+        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getNotebookWeeksNumberPanelController().getView());
         horizontalSequentialGroup2.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
-        horizontalSequentialGroup2.addComponent(daysPanelController.getView());
+        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getDaysPanelController().getView());
         horizontalParallelGroup2.addGroup(horizontalSequentialGroup2);
         horizontalSequentialGroup.addGroup(horizontalParallelGroup2);
         horizontalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
@@ -99,13 +84,13 @@ public class NotebookView extends AbstractView {
         ParallelGroup verticalParallelGroup = layout.createParallelGroup(Alignment.LEADING);
         SequentialGroup verticalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         ParallelGroup verticalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
-        verticalParallelGroup2.addComponent(daysNamePanelController.getView());
-        verticalParallelGroup2.addComponent(currentMonthPanelController.getView());
+        verticalParallelGroup2.addComponent(controller.getCurrentMonthPanelController().getDayNamePanelController().getView());
+        verticalParallelGroup2.addComponent(controller.getCurrentMonthPanelController().getView());
         verticalSequentialGroup.addGroup(verticalParallelGroup2);
         verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         verticalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
-        verticalParallelGroup2.addComponent(weeksNumberPanelController.getView());
-        verticalParallelGroup2.addComponent(daysPanelController.getView());
+        verticalParallelGroup2.addComponent(controller.getCurrentMonthPanelController().getNotebookWeeksNumberPanelController().getView());
+        verticalParallelGroup2.addComponent(controller.getCurrentMonthPanelController().getDaysPanelController().getView());
         verticalSequentialGroup.addGroup(verticalParallelGroup2);
         verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         verticalParallelGroup.addGroup(verticalSequentialGroup);
@@ -117,43 +102,6 @@ public class NotebookView extends AbstractView {
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
         setTitle(model.getTitle());
-    }
-    
-    public static void main(String args[]) {
-    
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                //                if ("Nimbus".equals(info.getName())) {
-                if (defaultLAF.equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NotebookView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NotebookView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NotebookView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NotebookView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-            
-                NotebookController controller = new NotebookController(LoggerFactory.getLogger(getClass()));
-                //                new NotebookView(controller, new NotebookModel(controller)).setVisible(true);
-            }
-        });
     }
     
 }

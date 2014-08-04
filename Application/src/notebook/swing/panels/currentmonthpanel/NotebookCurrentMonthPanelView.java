@@ -6,7 +6,10 @@ import static notebook.utils.NotebookConstant.weekNumberPannelMinimumWidht;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
+import java.util.Calendar;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
@@ -42,8 +45,28 @@ public class NotebookCurrentMonthPanelView extends AbstractPanelView {
         currentMonthName.setText(model.getCurrentMonthName() + " " + model.getCurrentYear());
         previousMonthButton.setMinimumSize(new java.awt.Dimension(40, 20));
         previousMonthButton.setPreferredSize(new java.awt.Dimension(40, 20));
+        previousMonthButton.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+            
+                controller.propertyChange(new PropertyChangeEvent(previousMonthButton, "Date", model.getCalendar().getTime(), model.getCalendar().addUnitsToDate(model.getCalendar().getTime(), Calendar.MONTH, -1).getTime()));
+                controller.setWeeksNumberModelProperty("Calendar", model.getCalendar());
+                controller.setDaysModelProperty("Calendar", model.getCalendar());
+            }
+        });
         nextMonthButton.setMinimumSize(new java.awt.Dimension(40, 20));
         nextMonthButton.setPreferredSize(new java.awt.Dimension(40, 20));
+        nextMonthButton.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+            
+                controller.propertyChange(new PropertyChangeEvent(nextMonthButton, "Date", model.getCalendar().getTime(), model.getCalendar().addUnitsToDate(model.getCalendar().getTime(), Calendar.MONTH, 1).getTime()));
+                controller.setWeeksNumberModelProperty("Calendar", model.getCalendar());
+                controller.setDaysModelProperty("Calendar", model.getCalendar());
+            }
+        });
         
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
@@ -64,7 +87,7 @@ public class NotebookCurrentMonthPanelView extends AbstractPanelView {
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
-        // TODO Auto-generated method stub
+        currentMonthName.setText(model.getCurrentMonthName() + " " + model.getCurrentYear());
         
     }
     

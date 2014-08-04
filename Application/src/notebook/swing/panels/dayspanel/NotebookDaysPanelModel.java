@@ -50,7 +50,7 @@ public class NotebookDaysPanelModel extends AbstractPanelModel {
     
         Integer dayNumber = getDayNumber(getCalendar().getDayOfWeek());
         
-        return getCalendar().addDays(Calendar.getInstance().getTime(), (7 - dayNumber) + (i - 1) * 7 + j).toString();
+        return String.valueOf(getCalendar().addUnitsToDate(Calendar.getInstance().getTime(), Calendar.DAY_OF_YEAR, (7 - dayNumber) + (i - 1) * 7 + j).get(Calendar.DAY_OF_MONTH));
         
     }
 }

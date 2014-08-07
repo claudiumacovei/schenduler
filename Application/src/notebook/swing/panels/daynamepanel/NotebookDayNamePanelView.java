@@ -1,5 +1,6 @@
 package notebook.swing.panels.daynamepanel;
 
+import static javax.swing.GroupLayout.DEFAULT_SIZE;
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;
 import static notebook.utils.NotebookConstant.buttonMinimumHeight;
@@ -64,15 +65,15 @@ public class NotebookDayNamePanelView extends AbstractPanelView {
             daysName[i].setPreferredSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
             daysName[i].setBorder(BorderFactory.createLineBorder(Color.BLACK));
             
-            horizontalSequentialGroup.addComponent(daysName[i]);
+            horizontalSequentialGroup.addComponent(daysName[i], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
             horizontalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
-            verticalParallelGroup.addComponent(daysName[i]);
+            verticalParallelGroup.addComponent(daysName[i], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
             verticalParallelGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         }
         
         layout.setHorizontalGroup(horizontalSequentialGroup);
         
-        verticalSequentialGroup.addGroup(verticalParallelGroup);
+        verticalSequentialGroup.addGroup(verticalParallelGroup).addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         layout.setVerticalGroup(verticalSequentialGroup);
         
     }

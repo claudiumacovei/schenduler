@@ -1,5 +1,6 @@
 package notebook.swing.panels.currentmonthpanel;
 
+import static javax.swing.GroupLayout.DEFAULT_SIZE;
 import static javax.swing.SwingConstants.CENTER;
 import static notebook.utils.NotebookConstant.dayNamePannelMinimumHeight;
 import static notebook.utils.NotebookConstant.weekNumberPannelMinimumWidht;
@@ -71,8 +72,8 @@ public class NotebookCurrentMonthPanelView extends AbstractPanelView {
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
         
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(10, 10, 10).addComponent(currentMonthName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGap(10, 10, 10)).addGroup(layout.createSequentialGroup().addGap(5, 5, 5).addComponent(previousMonthButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(4, 4, 4).addComponent(nextMonthButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(5, 5, 5)));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(10, 10, 10).addComponent(currentMonthName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(15, 15, 15).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(previousMonthButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(nextMonthButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addGap(15, 15, 15)));
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(10, 10, 10).addComponent(currentMonthName, DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE).addGap(10, 10, 10)).addGroup(layout.createSequentialGroup().addGap(5, 5, 5).addComponent(previousMonthButton, DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE).addGap(4, 4, 4).addComponent(nextMonthButton, DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE).addGap(5, 5, 5)));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(10, 10, 10).addComponent(currentMonthName, DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE).addGap(15, 15, 15).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(previousMonthButton, DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE).addComponent(nextMonthButton, DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE)).addGap(15, 15, 15)));
     }
     
     @Override

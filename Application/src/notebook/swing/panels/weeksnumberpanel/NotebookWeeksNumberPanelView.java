@@ -1,5 +1,6 @@
 package notebook.swing.panels.weeksnumberpanel;
 
+import static javax.swing.GroupLayout.DEFAULT_SIZE;
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;
 import static notebook.utils.NotebookConstant.buttonMinimumHeight;
@@ -67,11 +68,11 @@ public class NotebookWeeksNumberPanelView extends AbstractPanelView {
             weekNumber[i].setVerticalAlignment(CENTER);
             weekNumber[i].setBorder(BorderFactory.createLineBorder(Color.BLACK));
             
-            horizontalLocalSequentialGroup.addComponent(weekNumber[i]);
+            horizontalLocalSequentialGroup.addComponent(weekNumber[i], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
             horizontalLocalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
             horizontalParallelGroup.addGroup(horizontalLocalSequentialGroup);
             
-            verticalLocalParallelGroup.addComponent(weekNumber[i]);
+            verticalLocalParallelGroup.addComponent(weekNumber[i], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
             verticalLocalParallelGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
             verticalSequentialGroup.addGroup(verticalLocalParallelGroup);
             verticalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);

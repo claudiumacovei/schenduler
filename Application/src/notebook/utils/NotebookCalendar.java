@@ -52,6 +52,12 @@ public class NotebookCalendar {
     
     public Integer getDayOfWeek() {
     
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.clear(Calendar.MINUTE);
+        calendar.clear(Calendar.SECOND);
+        calendar.clear(Calendar.MILLISECOND);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        
         return calendar.get(Calendar.DAY_OF_WEEK);
     }
     

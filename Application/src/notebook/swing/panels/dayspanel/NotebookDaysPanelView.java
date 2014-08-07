@@ -1,5 +1,6 @@
 package notebook.swing.panels.dayspanel;
 
+import static javax.swing.GroupLayout.DEFAULT_SIZE;
 import static javax.swing.GroupLayout.Alignment.BASELINE;
 import static javax.swing.GroupLayout.Alignment.LEADING;
 import static javax.swing.SwingConstants.CENTER;
@@ -89,11 +90,11 @@ public class NotebookDaysPanelView extends AbstractPanelView {
                     }
                 });
                 
-                horizontalLocalSequentialGroup.addComponent(days[i][j]);
+                horizontalLocalSequentialGroup.addComponent(days[i][j], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
                 if (j != days[i].length)
                     horizontalLocalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
                 
-                verticalLocalParallelGroup.addComponent(days[i][j]);
+                verticalLocalParallelGroup.addComponent(days[i][j], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
             }
             
             horizontalParallelGroup2.addGroup(horizontalLocalSequentialGroup);

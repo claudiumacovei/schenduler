@@ -1,5 +1,6 @@
 package notebook;
 
+import static javax.swing.GroupLayout.DEFAULT_SIZE;
 import static notebook.utils.NotebookConstant.gapMaximumSize;
 import static notebook.utils.NotebookConstant.gapMinimumSize;
 import static notebook.utils.NotebookConstant.gapPreferedSize;
@@ -66,14 +67,14 @@ public class NotebookView extends AbstractView {
         SequentialGroup horizontalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         ParallelGroup horizontalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
         SequentialGroup horizontalSequentialGroup2 = layout.createSequentialGroup();
-        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getView());
+        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getView(), DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
         horizontalSequentialGroup2.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
-        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getDayNamePanelController().getView());
+        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getDayNamePanelController().getView(), DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
         horizontalParallelGroup2.addGroup(horizontalSequentialGroup2);
         horizontalSequentialGroup2 = layout.createSequentialGroup();
-        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getNotebookWeeksNumberPanelController().getView());
+        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getNotebookWeeksNumberPanelController().getView(), DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
         horizontalSequentialGroup2.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
-        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getDaysPanelController().getView());
+        horizontalSequentialGroup2.addComponent(controller.getCurrentMonthPanelController().getDaysPanelController().getView(), DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
         horizontalParallelGroup2.addGroup(horizontalSequentialGroup2);
         horizontalSequentialGroup.addGroup(horizontalParallelGroup2);
         horizontalSequentialGroup.addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);

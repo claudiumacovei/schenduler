@@ -13,6 +13,8 @@ public abstract class AbstractController implements PropertyChangeListener {
     private ArrayList<AbstractModel> registeredModels;
     private Logger logger = null;
     
+    public abstract void initController();
+    
     public AbstractController(Logger logger) {
     
         this.logger = logger;

@@ -44,7 +44,7 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
             
-                new NotebookController(logger).initController();;
+                new NotebookController(logger).initController();
                 
             }
         });

@@ -19,7 +19,6 @@ public abstract class AbstractPanelController implements PropertyChangeListener 
     public AbstractPanelController(Logger logger) {
     
         this.logger = logger;
-        initController();
     }
     
     public void addModel(AbstractModel model) {

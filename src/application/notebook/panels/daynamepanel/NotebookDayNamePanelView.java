@@ -27,14 +27,14 @@ import application.notebook.panels._abstract.AbstractPanelView;
 
 public class NotebookDayNamePanelView extends AbstractPanelView {
     private NotebookDayNamePanelController controller = null;
-    private NotebookDayNamePanelModel model = null;
-    private JLabel[] daysName = new JLabel[7];
+    private JLabel[] daysName = null;
     
-    public NotebookDayNamePanelView(NotebookDayNamePanelController controller, NotebookDayNamePanelModel model, Logger logger) {
+    public NotebookDayNamePanelView(NotebookDayNamePanelController controller, Logger logger) {
     
         super(logger);
-        this.model = model;
         this.controller = controller;
+        initComponents();
+        setPanel();
     }
     
     @Override
@@ -55,8 +55,9 @@ public class NotebookDayNamePanelView extends AbstractPanelView {
         SequentialGroup verticalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         ParallelGroup verticalParallelGroup = layout.createParallelGroup(LEADING).addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
         
+        daysName = new JLabel[7];
         for (int i = 0; i < daysName.length; i++) {
-            daysName[i] = new JLabel(model.getDayName(i));
+            daysName[i] = new JLabel(controller.getModel().getDayName(i));
             daysName[i].setHorizontalAlignment(CENTER);
             daysName[i].setVerticalAlignment(CENTER);
             daysName[i].setMinimumSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
@@ -80,7 +81,7 @@ public class NotebookDayNamePanelView extends AbstractPanelView {
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
         for (int i = 0; i < daysName.length; i++) {
-            daysName[i].setText(model.getDayName(i));
+            daysName[i].setText(controller.getModel().getDayName(i));
         }
     }
     

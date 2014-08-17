@@ -14,8 +14,6 @@ public abstract class AbstractPanelView extends JPanel {
     
         super();
         this.logger = logger;
-        initComponents();
-        setPanel();
     }
     
     public abstract void modelPropertyChange(final PropertyChangeEvent evt);

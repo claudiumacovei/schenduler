@@ -29,15 +29,15 @@ import application.notebook.page.PageController;
 import application.notebook.panels._abstract.AbstractPanelView;
 
 public class NotebookDaysPanelView extends AbstractPanelView {
-    NotebookDaysPanelModel model = null;
     NotebookDaysPanelController controller = null;
     private NotebookDayButton[][] days = new NotebookDayButton[6][7];
     
-    public NotebookDaysPanelView(NotebookDaysPanelController controller, NotebookDaysPanelModel model, Logger logger) {
+    public NotebookDaysPanelView(NotebookDaysPanelController controller, Logger logger) {
     
         super(logger);
         this.controller = controller;
-        this.model = model;
+        initComponents();
+        setPanel();
     }
     
     @Override
@@ -66,7 +66,7 @@ public class NotebookDaysPanelView extends AbstractPanelView {
             ParallelGroup verticalLocalParallelGroup = layout.createParallelGroup(BASELINE);
             days[i] = new NotebookDayButton[7];
             for (int j = 0; j < days[i].length; j++) {
-                days[i][j] = model.getDayButton(i, j);
+                days[i][j] = controller.getModel().getDayButton(i, j);
                 days[i][j].setMinimumSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
                 days[i][j].setPreferredSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
                 days[i][j].setHorizontalAlignment(CENTER);
@@ -100,7 +100,7 @@ public class NotebookDaysPanelView extends AbstractPanelView {
     
         for (int i = 0; i < days.length; i++) {
             for (int j = 0; j < days[i].length; j++) {
-                days[i][j] = model.getDayButton(i, j);
+                days[i][j] = controller.getModel().getDayButton(i, j);
             }
         }
         

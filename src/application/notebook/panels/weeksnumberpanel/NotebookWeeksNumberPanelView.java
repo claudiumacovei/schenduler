@@ -27,14 +27,14 @@ import application.notebook.panels._abstract.AbstractPanelView;
 
 public class NotebookWeeksNumberPanelView extends AbstractPanelView {
     private NotebookWeeksNumberPanelController controller = null;
-    private NotebookWeeksNumberPanelModel model = null;
     private JLabel[] weekNumber = new JLabel[6];
     
-    public NotebookWeeksNumberPanelView(NotebookWeeksNumberPanelController controller, NotebookWeeksNumberPanelModel model, Logger logger) {
+    public NotebookWeeksNumberPanelView(NotebookWeeksNumberPanelController controller, Logger logger) {
     
         super(logger);
-        this.model = model;
         this.controller = controller;
+        initComponents();
+        setPanel();
     }
     
     @Override
@@ -59,7 +59,7 @@ public class NotebookWeeksNumberPanelView extends AbstractPanelView {
             SequentialGroup horizontalLocalSequentialGroup = layout.createSequentialGroup().addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
             ParallelGroup verticalLocalParallelGroup = layout.createParallelGroup(LEADING).addGap(gapMinimumSize, gapPreferedSize, gapMaximumSize);
             weekNumber[i] = new JLabel();
-            weekNumber[i].setText(model.getWeekNumber(i));
+            weekNumber[i].setText(controller.getModel().getWeekNumber(i));
             weekNumber[i].setMinimumSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
             weekNumber[i].setPreferredSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
             weekNumber[i].setHorizontalAlignment(CENTER);
@@ -85,7 +85,7 @@ public class NotebookWeeksNumberPanelView extends AbstractPanelView {
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
         for (int i = 0; i < weekNumber.length; i++)
-            weekNumber[i].setText(model.getWeekNumber(i));
+            weekNumber[i].setText(controller.getModel().getWeekNumber(i));
         
     }
     

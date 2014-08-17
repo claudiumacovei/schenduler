@@ -18,27 +18,27 @@ import application.notebook._abstract.AbstractView;
 
 public class NotebookView extends AbstractView {
     private final NotebookController controller;
-    private final NotebookModel model;
     private NotebookMenuBar menuBar = null;
     
-    public NotebookView(NotebookController controller, NotebookModel model, Logger logger) {
+    public NotebookView(NotebookController controller, Logger logger) {
     
         super(logger);
         this.controller = controller;
-        this.model = model;
         initComponents();
         setFrame();
         
     }
     
-    private void setFrame() {
+    @Override
+    protected void setFrame() {
     
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setJMenuBar(menuBar);
         
     }
     
-    private void initComponents() {
+    @Override
+    protected void initComponents() {
     
         menuBar = new NotebookMenuBar(controller, getLogger());
         setJMenuBar(menuBar);
@@ -53,7 +53,7 @@ public class NotebookView extends AbstractView {
     
     private void initVariablesFromModel() {
     
-        setTitle(model.getTitle());
+        setTitle(controller.getModel().getTitle());
         
     }
     
@@ -101,7 +101,7 @@ public class NotebookView extends AbstractView {
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
-        setTitle(model.getTitle());
+        setTitle(controller.getModel().getTitle());
     }
     
 }

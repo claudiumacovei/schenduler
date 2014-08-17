@@ -8,23 +8,30 @@ import application.notebook.panels.currentmonthpanel.NotebookCurrentMonthPanelCo
 public class NotebookController extends AbstractController {
     
     private NotebookCurrentMonthPanelController currentMonthPanelController = null;
+    private NotebookModel model = null;
+    private NotebookView view = null;
     
     public NotebookController(Logger logger) {
     
         super(logger);
-        
         this.currentMonthPanelController = new NotebookCurrentMonthPanelController(logger);
-        currentMonthPanelController.initController();
+        this.currentMonthPanelController.initController();
+        this.model = new NotebookModel(logger);
+        addModel(model);
         
     }
     
+    @Override
     public void initController() {
     
-        NotebookModel model = new NotebookModel(getLogger());
-        NotebookView view = new NotebookView(this, model, getLogger());
-        view.setVisible(true);
-        addModel(model);
+        this.view = new NotebookView(this, getLogger());
+        this.view.setVisible(true);
         addView(view);
+    }
+    
+    public NotebookModel getModel() {
+    
+        return model;
     }
     
     public NotebookCurrentMonthPanelController getCurrentMonthPanelController() {

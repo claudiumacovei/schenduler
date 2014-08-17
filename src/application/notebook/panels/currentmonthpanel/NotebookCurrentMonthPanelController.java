@@ -13,7 +13,7 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
     
     private NotebookDayNamePanelController dayNamePanelController = null;
     private NotebookDaysPanelController daysPanelController = null;
-    private NotebookWeeksNumberPanelController notebookWeeksNumberPanelController = null;
+    private NotebookWeeksNumberPanelController weeksNumberPanelController = null;
     
     private NotebookCurrentMonthPanelModel model = null;
     private NotebookCurrentMonthPanelView view = null;
@@ -21,17 +21,20 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
     public NotebookCurrentMonthPanelController(Logger logger) {
     
         super(logger);
+        this.model = new NotebookCurrentMonthPanelModel(logger);
+        this.dayNamePanelController = new NotebookDayNamePanelController(logger);
+        this.dayNamePanelController.initController();
+        this.daysPanelController = new NotebookDaysPanelController(logger);
+        this.daysPanelController.initController();
+        this.weeksNumberPanelController = new NotebookWeeksNumberPanelController(logger);
+        this.weeksNumberPanelController.initController();
+        addModel(model);
     }
     
     @Override
     public void initController() {
     
-        model = new NotebookCurrentMonthPanelModel(getLogger());
-        view = new NotebookCurrentMonthPanelView(this, model, getLogger());
-        dayNamePanelController = new NotebookDayNamePanelController(getLogger());
-        daysPanelController = new NotebookDaysPanelController(getLogger());
-        notebookWeeksNumberPanelController = new NotebookWeeksNumberPanelController(getLogger());
-        addModel(model);
+        this.view = new NotebookCurrentMonthPanelView(this, getLogger());
         addView(view);
     }
     
@@ -47,7 +50,7 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
     
     public void setWeeksNumberModelProperty(String propertyName, Object newValue) {
     
-        this.notebookWeeksNumberPanelController.propertyChange(new PropertyChangeEvent(this, propertyName, null, newValue));
+        this.weeksNumberPanelController.propertyChange(new PropertyChangeEvent(this, propertyName, null, newValue));
         
     }
     
@@ -63,7 +66,7 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
     
     public NotebookWeeksNumberPanelController getNotebookWeeksNumberPanelController() {
     
-        return notebookWeeksNumberPanelController;
+        return weeksNumberPanelController;
     }
     
     public void setDayNamePanelController(NotebookDayNamePanelController dayNamePanelController) {
@@ -78,7 +81,7 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
     
     public void setNotebookWeeksNumberPanelController(NotebookWeeksNumberPanelController notebookWeeksNumberPanelController) {
     
-        this.notebookWeeksNumberPanelController = notebookWeeksNumberPanelController;
+        this.weeksNumberPanelController = notebookWeeksNumberPanelController;
     }
     
     public NotebookCurrentMonthPanelModel getModel() {

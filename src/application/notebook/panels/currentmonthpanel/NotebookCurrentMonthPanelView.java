@@ -22,26 +22,28 @@ import org.slf4j.Logger;
 import application.notebook.panels._abstract.AbstractPanelView;
 
 public class NotebookCurrentMonthPanelView extends AbstractPanelView {
-    NotebookCurrentMonthPanelModel model = null;
     NotebookCurrentMonthPanelController controller = null;
-    JLabel currentMonthName = new JLabel();
-    BasicArrowButton previousMonthButton = new BasicArrowButton(BasicArrowButton.WEST);
-    BasicArrowButton nextMonthButton = new BasicArrowButton(BasicArrowButton.EAST);
+    JLabel currentMonthName = null;
+    BasicArrowButton previousMonthButton = null;
+    BasicArrowButton nextMonthButton = null;
     
-    public NotebookCurrentMonthPanelView(NotebookCurrentMonthPanelController controller, NotebookCurrentMonthPanelModel model, Logger logger) {
+    public NotebookCurrentMonthPanelView(NotebookCurrentMonthPanelController controller, Logger logger) {
     
         super(logger);
-        this.model = model;
         this.controller = controller;
+        initComponents();
+        setPanel();
     }
     
     @Override
     protected void initComponents() {
     
+        currentMonthName = new JLabel();
         currentMonthName.setMinimumSize(new java.awt.Dimension(80, 40));
         currentMonthName.setPreferredSize(new java.awt.Dimension(80, 40));
         currentMonthName.setHorizontalAlignment(CENTER);
-        currentMonthName.setText(model.getCurrentMonthName() + " " + model.getCurrentYear());
+        currentMonthName.setText(controller.getModel().getCurrentMonthName() + " " + controller.getModel().getCurrentYear());
+        previousMonthButton = new BasicArrowButton(BasicArrowButton.WEST);
         previousMonthButton.setMinimumSize(new java.awt.Dimension(40, 20));
         previousMonthButton.setPreferredSize(new java.awt.Dimension(40, 20));
         previousMonthButton.addActionListener(new ActionListener() {
@@ -49,11 +51,12 @@ public class NotebookCurrentMonthPanelView extends AbstractPanelView {
             @Override
             public void actionPerformed(ActionEvent arg0) {
             
-                controller.propertyChange(new PropertyChangeEvent(previousMonthButton, "Date", model.getCalendar().getTime(), model.getCalendar().addUnitsToDate(model.getCalendar().getTime(), Calendar.MONTH, -1).getTime()));
-                controller.setWeeksNumberModelProperty("Calendar", model.getCalendar());
-                controller.setDaysModelProperty("Calendar", model.getCalendar());
+                controller.propertyChange(new PropertyChangeEvent(previousMonthButton, "Date", controller.getModel().getCalendar().getTime(), controller.getModel().getCalendar().addUnitsToDate(controller.getModel().getCalendar().getTime(), Calendar.MONTH, -1).getTime()));
+                controller.setWeeksNumberModelProperty("Calendar", controller.getModel().getCalendar());
+                controller.setDaysModelProperty("Calendar", controller.getModel().getCalendar());
             }
         });
+        nextMonthButton = new BasicArrowButton(BasicArrowButton.EAST);
         nextMonthButton.setMinimumSize(new java.awt.Dimension(40, 20));
         nextMonthButton.setPreferredSize(new java.awt.Dimension(40, 20));
         nextMonthButton.addActionListener(new ActionListener() {
@@ -61,9 +64,9 @@ public class NotebookCurrentMonthPanelView extends AbstractPanelView {
             @Override
             public void actionPerformed(ActionEvent arg0) {
             
-                controller.propertyChange(new PropertyChangeEvent(nextMonthButton, "Date", model.getCalendar().getTime(), model.getCalendar().addUnitsToDate(model.getCalendar().getTime(), Calendar.MONTH, 1).getTime()));
-                controller.setWeeksNumberModelProperty("Calendar", model.getCalendar());
-                controller.setDaysModelProperty("Calendar", model.getCalendar());
+                controller.propertyChange(new PropertyChangeEvent(nextMonthButton, "Date", controller.getModel().getCalendar().getTime(), controller.getModel().getCalendar().addUnitsToDate(controller.getModel().getCalendar().getTime(), Calendar.MONTH, 1).getTime()));
+                controller.setWeeksNumberModelProperty("Calendar", controller.getModel().getCalendar());
+                controller.setDaysModelProperty("Calendar", controller.getModel().getCalendar());
             }
         });
         
@@ -86,7 +89,7 @@ public class NotebookCurrentMonthPanelView extends AbstractPanelView {
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
-        currentMonthName.setText(model.getCurrentMonthName() + " " + model.getCurrentYear());
+        currentMonthName.setText(controller.getModel().getCurrentMonthName() + " " + controller.getModel().getCurrentYear());
         
     }
     

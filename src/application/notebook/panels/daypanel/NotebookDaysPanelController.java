@@ -13,13 +13,13 @@ public class NotebookDaysPanelController extends AbstractPanelController {
         super(logger);
     }
     
-    public NotebookDaysPanelController initController() {
+    @Override
+    public void initController() {
     
         model = new NotebookDaysPanelModel(getLogger());
         view = new NotebookDaysPanelView(this, model, getLogger());
         addModel(model);
         addView(view);
-        return this;
     }
     
     public NotebookDaysPanelView getView() {

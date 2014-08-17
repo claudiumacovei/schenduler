@@ -23,8 +23,6 @@ public class NotebookEventsPanelView extends AbstractPanelView {
     public NotebookEventsPanelView(Logger logger) {
     
         super(logger);
-        initComponents();
-        setPanel();
     }
     
     @Override

@@ -38,8 +38,6 @@ public class NotebookDaysPanelView extends AbstractPanelView {
         super(logger);
         this.controller = controller;
         this.model = model;
-        initComponents();
-        setPanel();
     }
     
     @Override

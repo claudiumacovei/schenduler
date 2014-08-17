@@ -23,13 +23,14 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
         super(logger);
     }
     
+    @Override
     public void initController() {
     
         model = new NotebookCurrentMonthPanelModel(getLogger());
         view = new NotebookCurrentMonthPanelView(this, model, getLogger());
-        dayNamePanelController = new NotebookDayNamePanelController(getLogger()).initController();
-        daysPanelController = new NotebookDaysPanelController(getLogger()).initController();
-        notebookWeeksNumberPanelController = new NotebookWeeksNumberPanelController(getLogger()).initController();
+        dayNamePanelController = new NotebookDayNamePanelController(getLogger());
+        daysPanelController = new NotebookDaysPanelController(getLogger());
+        notebookWeeksNumberPanelController = new NotebookWeeksNumberPanelController(getLogger());
         addModel(model);
         addView(view);
     }

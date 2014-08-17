@@ -11,4 +11,11 @@ public class NotebookEventsPanelController extends AbstractPanelController {
         super(logger);
     }
     
+    @Override
+    public void initController() {
+    
+        // TODO Auto-generated method stub
+        
+    }
+    
 }

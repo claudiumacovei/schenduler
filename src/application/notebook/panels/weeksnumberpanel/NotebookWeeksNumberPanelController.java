@@ -14,13 +14,13 @@ public class NotebookWeeksNumberPanelController extends AbstractPanelController 
         super(logger);
     }
     
-    public NotebookWeeksNumberPanelController initController() {
+    @Override
+    public void initController() {
     
         model = new NotebookWeeksNumberPanelModel(getLogger());
         view = new NotebookWeeksNumberPanelView(this, model, getLogger());
         addModel(model);
         addView(view);
-        return this;
     }
     
     public NotebookWeeksNumberPanelModel getModel() {

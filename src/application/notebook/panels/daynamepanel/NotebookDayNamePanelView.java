@@ -35,8 +35,6 @@ public class NotebookDayNamePanelView extends AbstractPanelView {
         super(logger);
         this.model = model;
         this.controller = controller;
-        initComponents();
-        setPanel();
     }
     
     @Override

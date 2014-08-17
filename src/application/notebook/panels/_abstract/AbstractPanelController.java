@@ -8,15 +8,18 @@ import org.slf4j.Logger;
 
 import application.notebook._abstract.AbstractModel;
 
-public class AbstractPanelController implements PropertyChangeListener {
+public abstract class AbstractPanelController implements PropertyChangeListener {
     
     private AbstractPanelView registeredView = null;
     private AbstractModel registeredModel = null;
     private Logger logger = null;
     
+    public abstract void initController();
+    
     public AbstractPanelController(Logger logger) {
     
         this.logger = logger;
+        initController();
     }
     
     public void addModel(AbstractModel model) {

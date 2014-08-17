@@ -14,8 +14,8 @@ import java.util.Calendar;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.plaf.basic.BasicArrowButton;
 
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
@@ -25,8 +25,8 @@ public class NotebookCurrentMonthPanelView extends AbstractPanelView {
     NotebookCurrentMonthPanelModel model = null;
     NotebookCurrentMonthPanelController controller = null;
     JLabel currentMonthName = new JLabel();
-    JButton previousMonthButton = new JButton("<");
-    JButton nextMonthButton = new JButton(">");
+    BasicArrowButton previousMonthButton = new BasicArrowButton(BasicArrowButton.WEST);
+    BasicArrowButton nextMonthButton = new BasicArrowButton(BasicArrowButton.EAST);
     
     public NotebookCurrentMonthPanelView(NotebookCurrentMonthPanelController controller, NotebookCurrentMonthPanelModel model, Logger logger) {
     

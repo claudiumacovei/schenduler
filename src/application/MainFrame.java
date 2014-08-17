@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
     
     private void initComponents() {
     
-        NotebookButton.setIcon(new ImageIcon("resources/notebook.png"));
+        NotebookButton.setIcon(new ImageIcon("Resources/notebook.png"));
         NotebookButton.addActionListener(new ActionListener() {
             
             @Override
@@ -49,7 +49,7 @@ public class MainFrame extends JFrame {
             }
         });
         
-        AdressBookButton.setIcon(new ImageIcon("resources/adressbook.png"));
+        AdressBookButton.setIcon(new ImageIcon("Resources/adressbook.png"));
         AdressBookButton.addActionListener(new ActionListener() {
             
             @Override

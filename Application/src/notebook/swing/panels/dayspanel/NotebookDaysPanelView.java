@@ -23,6 +23,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 
+import notebook.page.PageController;
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
 import org.slf4j.Logger;
@@ -120,7 +121,7 @@ public class NotebookDaysPanelView extends AbstractPanelView {
         @Override
         public void actionPerformed(ActionEvent e) {
         
-            getLogger().warn("DayButtonPressed: " + e);
+            new PageController(getLogger(), dayButton);
         }
         
     }

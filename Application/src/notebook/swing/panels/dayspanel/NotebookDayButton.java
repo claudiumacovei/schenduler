@@ -16,6 +16,26 @@ public class NotebookDayButton extends JButton {
         //TODO: init @eventsFilePath
     }
     
+    public Date getAssociatedDate() {
+    
+        return associatedDate;
+    }
+    
+    public String getEventsFilePath() {
+    
+        return eventsFilePath;
+    }
+    
+    public void setAssociatedDate(Date associatedDate) {
+    
+        this.associatedDate = associatedDate;
+    }
+    
+    public void setEventsFilePath(String eventsFilePath) {
+    
+        this.eventsFilePath = eventsFilePath;
+    }
+    
     public NotebookDayButton setButtonText(String text) {
     
         super.setText(text);

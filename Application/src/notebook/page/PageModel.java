@@ -1,10 +1,10 @@
 package notebook.page;
 
-import notebook.abstractc.AbstractModel;
+import notebook.page.abstractc.AbstractPageModel;
 
 import org.slf4j.Logger;
 
-public class PageModel extends AbstractModel {
+public class PageModel extends AbstractPageModel {
     
     public PageModel(Logger logger) {
     

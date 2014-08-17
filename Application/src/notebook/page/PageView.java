@@ -2,11 +2,11 @@ package notebook.page;
 
 import java.beans.PropertyChangeEvent;
 
-import notebook.abstractc.AbstractView;
+import notebook.page.abstractc.AbstractPageView;
 
 import org.slf4j.Logger;
 
-public class PageView extends AbstractView {
+public class PageView extends AbstractPageView {
     
     public PageView(Logger logger) {
     

@@ -1,15 +1,18 @@
 package notebook.page;
 
-import notebook.abstractc.AbstractController;
+import notebook.page.abstractc.AbstractPageController;
+import notebook.swing.panels.dayspanel.NotebookDayButton;
 
 import org.slf4j.Logger;
 
-public class PageController extends AbstractController {
+public class PageController extends AbstractPageController {
     
-    public PageController(Logger logger) {
+    private NotebookDayButton dayButton = null;
+    
+    public PageController(Logger logger, NotebookDayButton dayButton) {
     
         super(logger);
-        // TODO Auto-generated constructor stub
+        this.dayButton = dayButton;
     }
     
 }

@@ -2,10 +2,10 @@ package application.notebook;
 
 import java.util.Calendar;
 
-import notebook.abstractc.AbstractModel;
-import notebook.utils.NotebookCalendar;
-
 import org.slf4j.Logger;
+
+import application.notebook._abstract.AbstractModel;
+import application.notebook.utils.NotebookCalendar;
 
 public class NotebookModel extends AbstractModel {
     private String title = "MainApp";
@@ -22,6 +22,7 @@ public class NotebookModel extends AbstractModel {
         
     }
     
+    @Override
     public void setIsMondayFirstDayOfWeek(Boolean isMondayFirstDayOfWeek) {
     
         super.setIsMondayFirstDayOfWeek(isMondayFirstDayOfWeek);

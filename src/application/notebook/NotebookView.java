@@ -1,9 +1,6 @@
 package application.notebook;
 
 import static javax.swing.GroupLayout.DEFAULT_SIZE;
-import static notebook.utils.NotebookConstant.gapMaximumSize;
-import static notebook.utils.NotebookConstant.gapMinimumSize;
-import static notebook.utils.NotebookConstant.gapPreferedSize;
 
 import java.beans.PropertyChangeEvent;
 
@@ -12,10 +9,9 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 
-import notebook.abstractc.AbstractView;
-import notebook.swing.NotebookMenuBar;
-
 import org.slf4j.Logger;
+
+import application.notebook._abstract.AbstractView;
 
 public class NotebookView extends AbstractView {
     private final NotebookController controller;

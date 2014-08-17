@@ -1,9 +1,8 @@
 package application.notebook;
 
-import notebook.abstractc.AbstractController;
-import notebook.swing.panels.currentmonthpanel.NotebookCurrentMonthPanelController;
-
 import org.slf4j.Logger;
+
+import application.notebook._abstract.AbstractController;
 
 public class NotebookController extends AbstractController {
     

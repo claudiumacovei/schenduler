@@ -3,6 +3,7 @@ package application.notebook;
 import org.slf4j.Logger;
 
 import application.notebook._abstract.AbstractController;
+import application.notebook.panels.currentmonthpanel.NotebookCurrentMonthPanelController;
 
 public class NotebookController extends AbstractController {
     

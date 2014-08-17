@@ -5,6 +5,9 @@ import java.beans.PropertyChangeEvent;
 import org.slf4j.Logger;
 
 import application.notebook.panels._abstract.AbstractPanelController;
+import application.notebook.panels.daynamepanel.NotebookDayNamePanelController;
+import application.notebook.panels.daypanel.NotebookDaysPanelController;
+import application.notebook.panels.weeksnumberpanel.NotebookWeeksNumberPanelController;
 
 public class NotebookCurrentMonthPanelController extends AbstractPanelController {
     

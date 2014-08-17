@@ -1,5 +1,8 @@
 package application.notebook;
 
+import static application.notebook.utils.NotebookConstant.gapMaximumSize;
+import static application.notebook.utils.NotebookConstant.gapMinimumSize;
+import static application.notebook.utils.NotebookConstant.gapPreferedSize;
 import static javax.swing.GroupLayout.DEFAULT_SIZE;
 
 import java.beans.PropertyChangeEvent;

@@ -23,7 +23,7 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
         super(logger);
     }
     
-    public NotebookCurrentMonthPanelController initController() {
+    public void initController() {
     
         model = new NotebookCurrentMonthPanelModel(getLogger());
         view = new NotebookCurrentMonthPanelView(this, model, getLogger());
@@ -32,7 +32,6 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
         notebookWeeksNumberPanelController = new NotebookWeeksNumberPanelController(getLogger()).initController();
         addModel(model);
         addView(view);
-        return this;
     }
     
     public void setDayNameModelProperty(String propertyName, Object newValue) {

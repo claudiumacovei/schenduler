@@ -8,6 +8,9 @@ import org.slf4j.Logger;
 
 public class PageView extends AbstractPageView {
     
+    private PageController controller = null;
+    private PageModel model = null;
+    
     public PageView(Logger logger) {
     
         super(logger);

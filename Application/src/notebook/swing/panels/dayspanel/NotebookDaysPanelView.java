@@ -22,7 +22,6 @@ import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
-import javax.swing.JButton;
 
 import notebook.swing.panels.abstractc.AbstractPanelView;
 
@@ -31,7 +30,7 @@ import org.slf4j.Logger;
 public class NotebookDaysPanelView extends AbstractPanelView {
     NotebookDaysPanelModel model = null;
     NotebookDaysPanelController controller = null;
-    private JButton[][] days = new JButton[6][7];
+    private NotebookDayButton[][] days = new NotebookDayButton[6][7];
     
     public NotebookDaysPanelView(NotebookDaysPanelController controller, NotebookDaysPanelModel model, Logger logger) {
     
@@ -66,29 +65,14 @@ public class NotebookDaysPanelView extends AbstractPanelView {
         for (int i = 0; i < days.length; i++) {
             SequentialGroup horizontalLocalSequentialGroup = layout.createSequentialGroup();
             ParallelGroup verticalLocalParallelGroup = layout.createParallelGroup(BASELINE);
-            days[i] = new JButton[7];
+            days[i] = new NotebookDayButton[7];
             for (int j = 0; j < days[i].length; j++) {
-                days[i][j] = new JButton(model.getDayNumber(i, j));
+                days[i][j] = model.getDayButton(i, j);
                 days[i][j].setMinimumSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
                 days[i][j].setPreferredSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
                 days[i][j].setHorizontalAlignment(CENTER);
                 days[i][j].setVerticalAlignment(CENTER);
-                final int currentI = i;
-                final int currentJ = j;
-                days[i][j].addActionListener(new ActionListener() {
-                    
-                    @Override
-                    public void actionPerformed(ActionEvent arg0) {
-                    
-                        daysButtonActionPerformed(currentI, currentJ, arg0);
-                        
-                    }
-                    
-                    private void daysButtonActionPerformed(int currentI, int currentJ, ActionEvent arg0) {
-                    
-                        getLogger().warn("DayButtonPressed: i=" + currentI + " j=" + currentJ + " actionEvent: " + arg0);
-                    }
-                });
+                days[i][j].addActionListener(new DayButtonActionListener(days[i][j]));
                 
                 horizontalLocalSequentialGroup.addComponent(days[i][j], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
                 if (j != days[i].length)
@@ -117,8 +101,26 @@ public class NotebookDaysPanelView extends AbstractPanelView {
     
         for (int i = 0; i < days.length; i++) {
             for (int j = 0; j < days[i].length; j++) {
-                days[i][j].setText(model.getDayNumber(i, j));
+                days[i][j] = model.getDayButton(i, j);
             }
+        }
+        
+    }
+    
+    private final class DayButtonActionListener implements ActionListener {
+        
+        NotebookDayButton dayButton = null;
+        
+        public DayButtonActionListener(NotebookDayButton dayButton) {
+        
+            super();
+            this.dayButton = dayButton;
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        
+            getLogger().warn("DayButtonPressed: " + e);
         }
         
     }

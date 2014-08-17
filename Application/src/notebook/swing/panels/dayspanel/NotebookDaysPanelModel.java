@@ -66,7 +66,7 @@ public class NotebookDaysPanelModel extends AbstractPanelModel {
         super.setIsMondayFirstDayOfWeek(isMondayFirstDayOfWeek);
     }
     
-    public Integer getDayNumber(int value) {
+    private Integer getDayNumber(int value) {
     
         for (Entry<Integer, NotebookDay> entry : weekDaysMap.entrySet()) {
             if (entry.getValue().getCalendarDay().equals(value))
@@ -76,10 +76,15 @@ public class NotebookDaysPanelModel extends AbstractPanelModel {
         return null;
     }
     
-    public String getDayNumber(int i, int j) {
+    private String getDayNumber(int i, int j) {
     
         Integer dayNumber = getDayNumber(getCalendar().getDayOfWeek());
         
         return String.valueOf(getCalendar().addUnitsToDate(getCalendar().getTime(), Calendar.DAY_OF_YEAR, (7 - dayNumber) + (i - 1) * 7 + j).get(Calendar.DAY_OF_MONTH));
+    }
+    
+    public NotebookDayButton getDayButton(int i, int j) {
+    
+        return new NotebookDayButton(getCalendar().getTime()).setButtonText(getDayNumber(i, j));
     }
 }

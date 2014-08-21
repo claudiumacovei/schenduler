@@ -1,10 +1,12 @@
 package application.notebook.page.hoursEventsPanel;
 
-import static javax.swing.GroupLayout.DEFAULT_SIZE;
-
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.beans.PropertyChangeEvent;
 
+import javax.swing.BorderFactory;
+import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
@@ -17,7 +19,7 @@ import application.notebook.panels._abstract.AbstractPanelView;
 
 public class HoursEventsPanelView extends AbstractPanelView {
     
-    private static final int NUMBER_OF_BUTTONS = 20;
+    private static final int NUMBER_OF_BUTTONS = 50;
     JLabel[] labels = null;
     JButton[] buttons = null;
     
@@ -51,17 +53,18 @@ public class HoursEventsPanelView extends AbstractPanelView {
         for (int i = 0; i < NUMBER_OF_BUTTONS; i++) {
             labels[i] = new JLabel("Label" + i);
             labels[i].setPreferredSize(new Dimension(200, 100));
+            labels[i].setBorder(BorderFactory.createLineBorder(Color.black));
             buttons[i] = new JButton("Button" + i);
             
             SequentialGroup horizontalSequentialGroup2 = layout.createSequentialGroup();
-            horizontalSequentialGroup2.addComponent(labels[i], DEFAULT_SIZE, DEFAULT_SIZE, DEFAULT_SIZE);
+            horizontalSequentialGroup2.addComponent(labels[i], 200, 200, 200);
             horizontalSequentialGroup2.addGap(0, 0, 0);
-            horizontalSequentialGroup2.addComponent(buttons[i], DEFAULT_SIZE, DEFAULT_SIZE, DEFAULT_SIZE);
+            horizontalSequentialGroup2.addComponent(buttons[i], GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE);
             horizontalParallelGroup.addGroup(horizontalSequentialGroup2);
             
             ParallelGroup verticalParallelGroup2 = layout.createParallelGroup(Alignment.LEADING);
-            verticalParallelGroup2.addComponent(labels[i], DEFAULT_SIZE, DEFAULT_SIZE, DEFAULT_SIZE);
-            verticalParallelGroup2.addComponent(buttons[i], DEFAULT_SIZE, DEFAULT_SIZE, DEFAULT_SIZE);
+            verticalParallelGroup2.addComponent(labels[i], 50, 50, 50);
+            verticalParallelGroup2.addComponent(buttons[i], 50, 50, 50);
             verticalSequentialGroup.addGroup(verticalParallelGroup2);
             verticalSequentialGroup.addGap(0, 0, 0);
         }
@@ -76,7 +79,7 @@ public class HoursEventsPanelView extends AbstractPanelView {
     @Override
     protected void setPanel() {
     
-        // TODO Auto-generated method stub
+        setMaximumSize(new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() - 15, 3 * ((int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 4)));
         
     }
     

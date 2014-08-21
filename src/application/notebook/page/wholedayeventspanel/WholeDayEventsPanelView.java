@@ -77,7 +77,7 @@ public class WholeDayEventsPanelView extends AbstractPanelView {
         ParallelGroup parallelGroup = layout.createParallelGroup(Alignment.LEADING);
         SequentialGroup sequentialGroup = layout.createSequentialGroup();
         for (JButton jButton : buttons) {
-            sequentialGroup.addComponent(jButton, 70, 70, 70);
+            sequentialGroup.addComponent(jButton, 50, 50, 50);
         }
         
         parallelGroup.addGroup(sequentialGroup);
@@ -87,7 +87,7 @@ public class WholeDayEventsPanelView extends AbstractPanelView {
     @Override
     protected void setPanel() {
     
-        setMaximumSize(new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() - 15, 200));
+        setMaximumSize(new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() - 15, ((int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 4)));
     }
     private final class EventsActionListerner implements ActionListener {
         

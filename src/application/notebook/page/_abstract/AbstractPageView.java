@@ -4,17 +4,21 @@ import java.beans.PropertyChangeEvent;
 
 import org.slf4j.Logger;
 
-public abstract class AbstractPageView {
+import application.notebook._abstract.AbstractView;
+
+public abstract class AbstractPageView extends AbstractView {
     
     private Logger logger = null;
     
     public AbstractPageView(Logger logger) {
     
-        this.logger = logger;
+        super(logger);
     }
     
+    @Override
     public abstract void modelPropertyChange(final PropertyChangeEvent evt);
     
+    @Override
     protected Logger getLogger() {
     
         return this.logger;

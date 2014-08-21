@@ -2,6 +2,9 @@ package application.notebook.page.wholedayeventspanel;
 
 import static javax.swing.GroupLayout.DEFAULT_SIZE;
 
+import java.awt.Dimension;
+import java.awt.LayoutManager;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -26,9 +29,9 @@ public class WholeDayEventsPanelView extends AbstractPanelView {
     JButton jbutton = null;
     List<JButton> buttons = new ArrayList<JButton>();
     
-    public WholeDayEventsPanelView(Logger logger, JFrame parrentFrame) {
+    public WholeDayEventsPanelView(Logger logger, JFrame parrentFrame, LayoutManager layoutManager) {
     
-        super(logger);
+        super(logger, layoutManager);
         this.parrentFrame = parrentFrame;
         initComponents();
         setPanel();
@@ -84,6 +87,7 @@ public class WholeDayEventsPanelView extends AbstractPanelView {
     @Override
     protected void setPanel() {
     
+        setMaximumSize(new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() - 15, 200));
     }
     private final class EventsActionListerner implements ActionListener {
         

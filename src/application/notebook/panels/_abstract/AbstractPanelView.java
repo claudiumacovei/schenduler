@@ -1,5 +1,6 @@
 package application.notebook.panels._abstract;
 
+import java.awt.LayoutManager;
 import java.beans.PropertyChangeEvent;
 
 import javax.swing.JPanel;
@@ -13,6 +14,12 @@ public abstract class AbstractPanelView extends JPanel {
     public AbstractPanelView(Logger logger) {
     
         super();
+        this.logger = logger;
+    }
+    
+    public AbstractPanelView(Logger logger, LayoutManager layoutManager) {
+    
+        super(layoutManager);
         this.logger = logger;
     }
     

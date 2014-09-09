@@ -45,6 +45,11 @@ public abstract class AbstractPanelController implements PropertyChangeListener 
     //  Use this to observe property changes from registered models
     //  and propagate them on to all the views.
     
+    public AbstractModel getRegisteredModel() {
+    
+        return registeredModel;
+    }
+    
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
     
@@ -82,6 +87,11 @@ public abstract class AbstractPanelController implements PropertyChangeListener 
     protected Logger getLogger() {
     
         return this.logger;
+    }
+    
+    public AbstractPanelView getRegisteredView() {
+    
+        return registeredView;
     }
     
 }

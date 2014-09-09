@@ -55,6 +55,7 @@ public class HoursEventsPanelView extends AbstractPanelView {
             labels[i].setPreferredSize(new Dimension(200, 100));
             labels[i].setBorder(BorderFactory.createLineBorder(Color.black));
             buttons[i] = new JButton("Button" + i);
+            buttons[i].addActionListener(new HoursEventsPanelButtonActionListener(getLogger()));
             
             SequentialGroup horizontalSequentialGroup2 = layout.createSequentialGroup();
             horizontalSequentialGroup2.addComponent(labels[i], 200, 200, 200);

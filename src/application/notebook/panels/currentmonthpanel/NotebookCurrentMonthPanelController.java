@@ -15,27 +15,22 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
     private NotebookDaysPanelController daysPanelController = null;
     private NotebookWeeksNumberPanelController weeksNumberPanelController = null;
     
-    private NotebookCurrentMonthPanelModel model = null;
-    private NotebookCurrentMonthPanelView view = null;
-    
     public NotebookCurrentMonthPanelController(Logger logger) {
     
         super(logger);
-        this.model = new NotebookCurrentMonthPanelModel(logger);
         this.dayNamePanelController = new NotebookDayNamePanelController(logger);
         this.dayNamePanelController.initController();
         this.daysPanelController = new NotebookDaysPanelController(logger);
         this.daysPanelController.initController();
         this.weeksNumberPanelController = new NotebookWeeksNumberPanelController(logger);
         this.weeksNumberPanelController.initController();
-        addModel(model);
+        addModel(new NotebookCurrentMonthPanelModel(logger));
     }
     
     @Override
     public void initController() {
     
-        this.view = new NotebookCurrentMonthPanelView(this, getLogger());
-        addView(view);
+        addView(new NotebookCurrentMonthPanelView(this, getLogger()));
     }
     
     public void setDayNameModelProperty(String propertyName, Object newValue) {
@@ -86,22 +81,11 @@ public class NotebookCurrentMonthPanelController extends AbstractPanelController
     
     public NotebookCurrentMonthPanelModel getModel() {
     
-        return model;
+        return (NotebookCurrentMonthPanelModel) getRegisteredModel();
     }
     
     public NotebookCurrentMonthPanelView getView() {
     
-        return view;
+        return (NotebookCurrentMonthPanelView) getRegisteredView();
     }
-    
-    public void setModel(NotebookCurrentMonthPanelModel model) {
-    
-        this.model = model;
-    }
-    
-    public void setView(NotebookCurrentMonthPanelView view) {
-    
-        this.view = view;
-    }
-    
 }

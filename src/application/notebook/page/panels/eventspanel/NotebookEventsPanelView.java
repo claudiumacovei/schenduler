@@ -47,6 +47,7 @@ public class NotebookEventsPanelView extends AbstractPanelView {
         for (int i = 0; i < timeIntervalUnits.length; i++) {
             timeIntervalUnits[i] = new JLabel(i + "");
             eventsButtons[i] = new JButton(i + "");
+            eventsButtons[i].addActionListener(new NotebookEventsPanelButtonActionListener(getLogger()));
             
             SequentialGroup horizontalSequentialGroup = layout.createSequentialGroup();
             horizontalSequentialGroup.addComponent(timeIntervalUnits[i], 50, 50, 50);

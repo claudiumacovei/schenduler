@@ -43,17 +43,9 @@ public class NotebookView extends AbstractView {
         menuBar = new NotebookMenuBar(controller, getLogger());
         setJMenuBar(menuBar);
         
-        initVariablesFromModel();
-        
         initPannels();
         
         pack();
-        
-    }
-    
-    private void initVariablesFromModel() {
-    
-        setTitle(controller.getModel().getTitle());
         
     }
     
@@ -101,7 +93,6 @@ public class NotebookView extends AbstractView {
     @Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
     
-        setTitle(controller.getModel().getTitle());
     }
     
 }

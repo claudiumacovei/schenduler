@@ -14,8 +14,6 @@ import static javax.swing.SwingConstants.CENTER;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 
 import javax.swing.BorderFactory;
@@ -25,7 +23,6 @@ import javax.swing.GroupLayout.SequentialGroup;
 
 import org.slf4j.Logger;
 
-import application.notebook.page.PageController;
 import application.notebook.panels._abstract.AbstractPanelView;
 
 public class NotebookDaysPanelView extends AbstractPanelView {
@@ -71,7 +68,7 @@ public class NotebookDaysPanelView extends AbstractPanelView {
                 days[i][j].setPreferredSize(new Dimension(buttonMinimumHeight, buttonMinimumWidth));
                 days[i][j].setHorizontalAlignment(CENTER);
                 days[i][j].setVerticalAlignment(CENTER);
-                days[i][j].addActionListener(new DayButtonActionListener(days[i][j]));
+                days[i][j].addActionListener(new DayPanelButtonActionListener(getLogger(), days[i][j]));
                 
                 horizontalLocalSequentialGroup.addComponent(days[i][j], DEFAULT_SIZE, DEFAULT_SIZE, Short.MAX_VALUE);
                 if (j != days[i].length)
@@ -106,21 +103,4 @@ public class NotebookDaysPanelView extends AbstractPanelView {
         
     }
     
-    private final class DayButtonActionListener implements ActionListener {
-        
-        NotebookDayButton dayButton = null;
-        
-        public DayButtonActionListener(NotebookDayButton dayButton) {
-        
-            super();
-            this.dayButton = dayButton;
-        }
-        
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        
-            new PageController(getLogger(), dayButton);
-        }
-        
-    }
 }
